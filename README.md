@@ -33,9 +33,9 @@ If you wanna skip Etherscan verifications, don't fill out the ETHERSCAN_API_KEY 
 
 ## File locations
 
-- **contracts/ folder**: Original and attacker contracts are inside the same file
-- **deploy/ folder**: Deploy scripts for attacks that require deploying another contract
-- **scripts/ folder**: Scripts that run the entire attack from start to finish (pwn)
+- **contracts/ folder**: Contracts and libraries for those contracts.
+- **deploy/ folder**: Deploy scripts that work according to hardhat-deploy plugin.
+- **scripts/ folder**: Script to deployAll, and script to Propose as admin.
 - **.env**: **Env**ironment variables. Located on the root folder of the project.
 
 For any troubles, visit the [Troubleshooting](#troubleshooting) section.
