@@ -1,8 +1,9 @@
-import { ConnectButton } from "@rainbow-me/rainbowkit"
+// import { ConnectButton } from "@rainbow-me/rainbowkit"
 // import type { NextPage } from "next";
 import Head from "next/head"
 import { useAccount } from "wagmi"
-import { AvailableVotingPower, DAOModerators, Header, ListProposals } from "../components"
+import { AvailableVotingPower, DAOModerators, ListProposals } from "../components"
+import Header from "../components/Header"
 import { useIsMounted } from "../hooks"
 import { Heading, Grid, GridItem } from "@chakra-ui/react"
 import styles from "../styles/Home.module.css"
@@ -20,11 +21,8 @@ const Home = () => {
         <link href="favicon.ico" rel="icon" />
       </Head>
 
-      {/* <Header /> */}
-
+      <Header />
       <main className={styles.main}>
-        <ConnectButton />
-
         <Grid templateColumns="repeat(12, 1fr)" width="100vw" height="100vh">
           <GridItem colSpan={1} />
           <GridItem colSpan={5} borderRight="1px solid #2d2d2d" padding="0 16px 16px 16px">

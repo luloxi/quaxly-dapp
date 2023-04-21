@@ -32,7 +32,7 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
 4. Change name of file **.env.example** to **.env**
 5. Fill the .env file with the correct information for the blockchain you want to deploy to
 
-_If you want to skip Etherscan verifications, don't fill out the ETHERSCAN_API_KEY or POLYGONSCAN_API_KEY variables._
+_If you want to skip contracts verification, don't fill out the ETHERSCAN_API_KEY or POLYGONSCAN_API_KEY variables._
 
 ### Settings for Mainnet
 
