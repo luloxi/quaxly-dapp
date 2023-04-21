@@ -210,7 +210,7 @@ export function Proposal({ availableVoting = 0, hasVoted = false, proposal, only
       )}
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay bg="#333" backdropFilter="auto" backdropInvert="80%" backdropBlur="2px" />
-        <ModalContent bg="#55F" border="white 1px solid">
+        <ModalContent bg="#f4a261" color="#333">
           <ModalHeader>
             Vote for &quot;{description.substring(0, 80)}
             {description.length > 80 && "..."}&quot;
@@ -284,7 +284,9 @@ export function Proposal({ availableVoting = 0, hasVoted = false, proposal, only
                 </ModalBody>
 
                 <ModalFooter>
-                  <button type="submit">Submit</button>
+                  <button className="submit-button" type="submit">
+                    Submit
+                  </button>
                 </ModalFooter>
               </Form>
             )}

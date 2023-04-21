@@ -27,6 +27,15 @@ export const globalCSS = {
       ".primary-button:hover": {
         background: "#e76f51",
       },
+      ".submit-button": {
+        background: "#2a9d8f",
+        color: "#FFF",
+      },
+      ".submit-button:hover": {
+        background: "#e76f51",
+        border: 0,
+      },
+
       ".css-192lbzy": {
         border: "1px solid white",
       },
