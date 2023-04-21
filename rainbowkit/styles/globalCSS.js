@@ -3,7 +3,7 @@ export const globalCSS = {
     global: {
       "html, body": {
         color: "white",
-        background: "#211f24",
+        background: "#264653",
         padding: 0,
         margin: 0,
         fontFamily:
@@ -14,7 +14,6 @@ export const globalCSS = {
       },
       button: {
         fontWeight: "bold",
-        border: "1px solid #2d2d2d",
         borderRadius: "23px",
         padding: "8px 22px",
       },
@@ -22,11 +21,11 @@ export const globalCSS = {
         border: "1px solid white",
       },
       ".primary-button": {
-        background: "#384aff",
+        background: "#e76f51",
+        color: "#FFF",
       },
       ".primary-button:hover": {
-        border: "1px solid #3546F2",
-        background: "#3546F2",
+        background: "#e76f51",
       },
       ".css-192lbzy": {
         border: "1px solid white",
@@ -39,4 +38,4 @@ export const globalCSS = {
       },
     },
   },
-};
+}

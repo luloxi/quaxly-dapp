@@ -144,7 +144,7 @@ export function Proposal({ availableVoting = 0, hasVoted = false, proposal, only
       )}
       {isLoading && <span>Loading proposal state ...</span>}
       {((onlySuccessful && proposalState === "Succeeded") || !onlySuccessful) && (
-        <Box border="1px solid #2d2d2d" margin="12px" padding="24px" borderRadius="12px">
+        <Box margin="12px" padding="24px" borderRadius="12px" bgColor="#e9c46a" color="#333">
           <Heading as="h3" size="sm" marginBottom="16px">
             {description}
           </Heading>
@@ -167,7 +167,15 @@ export function Proposal({ availableVoting = 0, hasVoted = false, proposal, only
           </Grid>
 
           {canVote && isConnected && (
-            <Container display="flex" justifyContent="space-around" marginTop="16px">
+            <Container
+              display="flex"
+              justifyContent="space-around"
+              marginTop="16px"
+              bgColor="#2a9d8f"
+              color="#FFF"
+              borderRadius={"5em"}
+              padding={"1em"}
+            >
               <div>
                 <TotalVotingPower />
                 <p>
@@ -201,8 +209,8 @@ export function Proposal({ availableVoting = 0, hasVoted = false, proposal, only
         </Box>
       )}
       <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay bg="#211f24" backdropFilter="auto" backdropInvert="80%" backdropBlur="2px" />
-        <ModalContent bg="#211f24" border="white 1px solid">
+        <ModalOverlay bg="#333" backdropFilter="auto" backdropInvert="80%" backdropBlur="2px" />
+        <ModalContent bg="#55F" border="white 1px solid">
           <ModalHeader>
             Vote for &quot;{description.substring(0, 80)}
             {description.length > 80 && "..."}&quot;
@@ -233,7 +241,12 @@ export function Proposal({ availableVoting = 0, hasVoted = false, proposal, only
                     {({ field }) => (
                       <FormControl>
                         <FormLabel>Your support for this proposal</FormLabel>
-                        <Select id="support" onChange={field.onChange}>
+                        <Select
+                          color="black"
+                          bgColor="white"
+                          id="support"
+                          onChange={field.onChange}
+                        >
                           <option>- select an option -</option>
                           {supportOptions.map((key, i) => (
                             <option key={i} value={key}>
@@ -250,7 +263,12 @@ export function Proposal({ availableVoting = 0, hasVoted = false, proposal, only
                     {({ field }) => (
                       <FormControl>
                         <FormLabel>Your voting weight for this proposal</FormLabel>
-                        <Select id="votingWeight" onChange={field.onChange}>
+                        <Select
+                          color="black"
+                          bgColor="white"
+                          id="votingWeight"
+                          onChange={field.onChange}
+                        >
                           {votingWeightOptions.map((weight) => (
                             <option key={weight} value={weight}>
                               {weight}
