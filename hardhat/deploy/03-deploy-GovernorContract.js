@@ -37,10 +37,11 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     waitConfirmations: network.config.blockConfirmations || 1,
   })
 
-  if (developmentChains.includes(network.name)) {
-    log("Transfering DAO ownershit to GovernorContract...")
-    await daoModerators.transferOwnership(governorContract.address)
-  }
+  // Do something to automate this here?
+  // if (developmentChains.includes(network.name)) {
+  //   log("Transfering DAO ownershit to GovernorContract...")
+  //   await daoModerators.transferOwnership(governorContract.address)
+  // }
 
   log("-------------------------------------")
 
