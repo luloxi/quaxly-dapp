@@ -1,10 +1,10 @@
 const developmentChains = ["hardhat", "localhost"]
-const daoModeratorsAddress = "../frontend/constants/daoModeratorsAddress.json"
-const daoModeratorsABI = "../frontend/constants/daoModeratorsABI.json"
-const governanceTokenAddress = "../frontend/constants/governanceTokenAddress.json"
-const governanceTokenABI = "../frontend/constants/governanceTokenABI.json"
-const governorContractAddress = "../frontend/constants/governorContractAddress.json"
-const governorContractABI = "../frontend/constants/governorContractABI.json"
+const daoModeratorsAddress = "../rainbowkit/constants/daoModeratorsAddress.json"
+const daoModeratorsABI = "../rainbowkit/constants/daoModeratorsABI.json"
+const governanceTokenAddress = "../rainbowkit/constants/governanceTokenAddress.json"
+const governanceTokenABI = "../rainbowkit/constants/governanceTokenABI.json"
+const governorContractAddress = "../rainbowkit/constants/governorContractAddress.json"
+const governorContractABI = "../rainbowkit/constants/governorContractABI.json"
 
 module.exports = {
   daoModeratorsAddress,
