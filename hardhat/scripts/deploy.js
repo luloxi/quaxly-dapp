@@ -14,6 +14,10 @@ async function main() {
   const governorContract = await ethers.getContract("GovernorContract", deployer)
   const daoModerators = await ethers.getContract("DAOModerators", deployer)
 
+  console.log("GovernanceToken address:", governanceToken.address)
+  console.log("GovernorContract address:", governanceToken.address)
+  console.log("DAOModerators address:", governanceToken.address)
+
   /* Calling functions on contracts */
   await daoModerators.transferOwnership(governorContract.address)
 

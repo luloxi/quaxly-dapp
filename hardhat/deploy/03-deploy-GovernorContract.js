@@ -39,7 +39,10 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
 
   log("-------------------------------------")
 
-  if (!developmentChains.includes(network.name) && process.env.ETHERSCAN_API_KEY) {
+  if (
+    !developmentChains.includes(network.name) &&
+    (process.env.ETHERSCAN_API_KEY || process.env.POLYGONSCAN_API_KEY)
+  ) {
     log("Verifying...")
     await verify(governorContract.address, arguments)
   }

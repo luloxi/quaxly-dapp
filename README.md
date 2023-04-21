@@ -19,13 +19,13 @@ If you wanna skip Etherscan verifications, don't fill out the ETHERSCAN_API_KEY 
 - MAINNET_RPC URL: [Alchemy (step 1 and 2)](https://www.alchemy.com/overviews/private-rpc-endpoint)
 - (optional) ETHERSCAN_API_KEY: [Etherscan](https://info.etherscan.com/api-keys/)
 
-### Deploying to Goerli
+### Deploying to Goerli Testnet
 
 - PRIVATE_KEY: [Metamask](https://metamask.zendesk.com/hc/en-us/articles/)
 - GOERLI_RPC URL: [Alchemy (step 1 and 2)](https://www.alchemy.com/overviews/private-rpc-endpoint)
 - (optional) ETHERSCAN_API_KEY: [Etherscan](https://info.etherscan.com/api-keys/)
 
-### Deploying to Mumbai
+### Deploying to Mumbai Testnet
 
 - PRIVATE_KEY: [Metamask](https://metamask.zendesk.com/hc/en-us/articles/)
 - MUMBAI_RPC_URL: [Alchemy (step 1 and 2)](https://www.alchemy.com/overviews/private-rpc-endpoint)
@@ -45,7 +45,7 @@ For any troubles, visit the [Troubleshooting](#troubleshooting) section.
 ### General errors
 
 - Did you **set the .env file** right?
-- **Did you save** after changingthe .env file?
+- **Did you save** after changing the .env file?
 - Delete **"artifacts"** and **"cache"** folder and try again.
 
 ### "nonce too low" / Pending transaction stuck:
