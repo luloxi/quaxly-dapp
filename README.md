@@ -70,6 +70,17 @@ _If you want to skip Etherscan verifications, don't fill out the ETHERSCAN_API_K
 3. Run `yarn dev`
 4. Open [http://localhost:3000](http://localhost:3000) in your web browser
 
+## Deploying on Fleek/Vercel/etc
+
+### Fleek
+
+1. Select to deploy from your repo, then choose the **Next** type
+2. Input this custom parameters:
+
+- Build command: `yarn && yarn build && yarn export`
+- Publish directory: `out`
+- Base directory: `rainbowkit`
+
 # Troubleshooting
 
 ## Smart contracts
