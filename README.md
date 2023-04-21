@@ -1,13 +1,29 @@
 # Quaxly DAO
 
-Suite to deploy and test Quaxly DAO contracts.
+Quadratic voting DAO on a full stack monorepo
 
 # Smart contracts
+
+Suite to deploy and test Quaxly DAO contracts.
+
+## Setting up
 
 1. Open a terminal on `hardhat` folder
 2. Run `yarn` on hardhat folder to install dependencies.
 3. Change name of file **.env.example** to **.env**
-4. Fill in the corresponding variables to the blockchain you want to deploy to
+4. [Fill in the corresponding variables](#filling-the-env-file) to the blockchain you want to deploy to
+
+## Deploying
+
+- Run `yarn hardhat run scripts/deployAll --network BLOCKCHAIN_NAME_HERE` but replacing BLOCKCHAIN_NAME_HERE for `mumbai`, `goerli`, or `mainnet`
+
+In a future version this may be prompted by the script
+
+## Testing
+
+- Run `yarn hardhat test`
+
+In a future version this may include staging tests
 
 ## Filling the .env file
 
@@ -50,7 +66,7 @@ For any troubles, visit the [Troubleshooting](#troubleshooting) section.
 
 ### "nonce too low" / Pending transaction stuck:
 
-If you get this error when submitting level instance, it's because you used some nonces to send the transactions that attack the level. In your MetaMask, go to **Settings > Advanced > Reset Account**
+If you get this error when trying to use your wallet again after using it for interacting with the blockchain with this repo, it's because you used some nonces to send the transactions that deploy or interact with the contracts. In your MetaMask, go to **Settings > Advanced > Reset Account**
 
 ### Don't have Goerli ETH/Mumbai MATIC
 
