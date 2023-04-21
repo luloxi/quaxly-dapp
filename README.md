@@ -62,6 +62,7 @@ _If you want to skip Etherscan verifications, don't fill out the ETHERSCAN_API_K
 
 1. Run `yarn hardhat node` to start a blockchain with contracts deployed
 2. Run `scripts/transferOwnership.js` to integrate functionality with governance
+3. Run `scripts/createProposal.js` to create a proposal
 
 # Frontend
 
