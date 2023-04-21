@@ -16,6 +16,10 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
   - [Setting up Rainbowkit](#setting-up-rainbowkit)
   - [Deploying to Fleek]()
 - [File locations](#file-locations)
+  - [/ (Root folder)](#root-folder)
+  - [/hardhat (Smart contracts)](#hardhat-smart-contracts)
+  - [/rainbowkit (Frontend)](#rainbowkit-frontend-folder)
+  - [/express (Backend)](#)
 - [Troubleshooting](#troubleshooting)
 
 # Smart contracts
@@ -99,6 +103,19 @@ _If you want to skip Etherscan verifications, don't fill out the ETHERSCAN_API_K
 - **contracts/**: Contracts and libraries for those contracts.
 - **deploy/**: Deploy scripts that work according to hardhat-deploy plugin.
 - **scripts/**: Script to deployAll, and script to Propose as admin.
+- **test/**: Unit testing for Quaxly contracts
+
+## /rainbowkit (Frontend)
+
+- **/components**: Custom components for Quaxly dApp.
+- **/constants**: ABI and Contract addresses for deployed contracts
+- **/hooks**: Custom hooks for conditional behavior
+- **/pages**: Single page base files
+- **/styles**: CSS modules for styling the dApp
+
+## /express (Backend)
+
+- **/index.js**: File with setup and functions for REST API
 
 # Troubleshooting
 
