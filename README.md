@@ -11,11 +11,17 @@ Suite to deploy and test Quaxly DAO contracts.
 1. Open a terminal on `hardhat` folder
 2. Run `yarn` on hardhat folder to install dependencies.
 3. Change name of file **.env.example** to **.env**
-4. [Fill in the corresponding variables](#filling-the-env-file) to the blockchain you want to deploy to
+4. [Fill the .env with variables](#filling-the-env-file) for the blockchain you want to deploy to
 
 ## Deploying
 
+### On testnet/mainnet
+
 - Run `yarn hardhat run scripts/deployAll --network BLOCKCHAIN_NAME_HERE` but replacing BLOCKCHAIN_NAME_HERE for `mumbai`, `goerli`, or `mainnet`
+
+### On local node
+
+- Run `yarn hardhat node` to start a blockchain with contracts deployed
 
 In a future version this may be prompted by the script
 

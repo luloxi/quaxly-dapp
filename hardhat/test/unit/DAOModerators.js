@@ -13,7 +13,7 @@ const { NAME, EMAIL, MODERATOR_ADDRESS } = NEW_MODERATORS[0]
       let daoModerators, deployer
       beforeEach(async function () {
         const accounts = await ethers.getSigners()
-        const deployer = accounts[0]
+        deployer = accounts[0]
 
         await deployments.fixture("all")
         daoModerators = await ethers.getContract("DAOModerators")
