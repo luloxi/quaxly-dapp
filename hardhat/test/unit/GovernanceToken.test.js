@@ -2,8 +2,8 @@ const { expect } = require("chai")
 const { BigNumber } = require("ethers")
 const { moveBlocks } = require("./utilities")
 const { network, deployments, ethers } = require("hardhat")
-const { developmentChains } = require("../../helper-hardhat-config")
 const {
+  developmentChains,
   GOVERNANCE_TOKEN: { TOTAL_SUPPLY },
 } = require("../../helper-hardhat-config")
 

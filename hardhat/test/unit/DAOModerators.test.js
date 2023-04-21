@@ -1,7 +1,7 @@
 const { expect } = require("chai")
 const { network, deployments, ethers } = require("hardhat")
-const { developmentChains } = require("../../helper-hardhat-config")
 const {
+  developmentChains,
   DAO_MODERATORS: { NEW_MODERATORS },
 } = require("../../helper-hardhat-config")
 const { NAME, EMAIL, MODERATOR_ADDRESS } = NEW_MODERATORS[0]

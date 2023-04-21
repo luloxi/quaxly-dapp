@@ -43,13 +43,13 @@ _If you want to skip Etherscan verifications, don't fill out the ETHERSCAN_API_K
 
 ## Deploying
 
-### On testnets and mainnet
+### To testnets or mainnet
 
 - Mainnet: `yarn hardhat run scripts/deployAll --network mainnet`
 - Goerli: `yarn hardhat run scripts/deployAll --network goerli`
 - Mumbai: `yarn hardhat run scripts/deployAll --network mumbai`
 
-### On local node
+### To local node
 
 1. Run `yarn hardhat node` to start a blockchain with contracts deployed
 2. Run `scripts/transferOwnership.js` to integrate functionality with governance
