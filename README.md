@@ -63,7 +63,7 @@ _If you want to skip Etherscan verifications, don't fill out the ETHERSCAN_API_K
 3. Run `yarn dev`
 4. Open [http://localhost:3000](http://localhost:3000) in your web browser
 
-## Deploying on Fleek/Vercel/etc
+## Deploying to Fleek
 
 ### Fleek
 
@@ -74,23 +74,23 @@ _If you want to skip Etherscan verifications, don't fill out the ETHERSCAN_API_K
 - Publish directory: `out`
 - Base directory: `rainbowkit`
 
-# Troubleshooting
+# File locations
 
-## File locations
-
-### / (Root folder)
+## / (Root folder)
 
 - **/concept**: Reference files for styling.
 - **/express**: Backend files. Made using Express.
 - **/hardhat**: Smart contracts files. Made using Hardhat
 - **/rainbowkit**: Frontend files. Made using Next.js + Rainbowkit + Wagmi + ChakraUI
 
-### /hardhat (Smart contracts)
+## /hardhat (Smart contracts)
 
 - **contracts/**: Contracts and libraries for those contracts.
 - **deploy/**: Deploy scripts that work according to hardhat-deploy plugin.
 - **scripts/**: Script to deployAll, and script to Propose as admin.
 - **.env**: **Env**ironment variables. Located on the root folder of the project.
+
+# Troubleshooting
 
 ## Smart contracts
 
