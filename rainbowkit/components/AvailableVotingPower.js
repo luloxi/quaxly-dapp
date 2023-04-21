@@ -10,6 +10,7 @@ export function AvailableVotingPower({ children }) {
 
   /* Replace with a dynamic chain component */
   const GovernorContractAddress = governorContractAddress["31337"][0]
+  console.log(GovernorContractAddress)
 
   useContractRead({
     addressOrName: GovernorContractAddress,

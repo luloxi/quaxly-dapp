@@ -49,10 +49,10 @@ export function Proposal({ availableVoting = 0, hasVoted = false, proposal, only
   })
 
   /* Replace with a dynamic chain component */
-  const GovernanorContractAddress = governanorContractAddress["31337"][0]
+  const GovernorContractAddress = governorContractAddress["31337"][0]
 
   useContractRead({
-    addressOrName: GovernanorContractAddress,
+    addressOrName: GovernorContractAddress,
     contractInterface: governorContractABI,
     functionName: "state",
     args: proposalId,
@@ -71,7 +71,7 @@ export function Proposal({ availableVoting = 0, hasVoted = false, proposal, only
 
   const { write } = useContractWrite({
     mode: "recklesslyUnprepared",
-    addressOrName: GovernanorContractAddress,
+    addressOrName: GovernorContractAddress,
     contractInterface: governorContractABI,
     functionName: "vote",
     onSuccess() {
@@ -101,7 +101,7 @@ export function Proposal({ availableVoting = 0, hasVoted = false, proposal, only
 
   const { write: execute } = useContractWrite({
     mode: "recklesslyUnprepared",
-    addressOrName: GovernanorContractAddress,
+    addressOrName: GovernorContractAddress,
     contractInterface: governorContractABI,
     functionName: "execute",
     onSuccess() {
