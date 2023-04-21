@@ -54,13 +54,6 @@ _If you want to skip Etherscan verifications, don't fill out the ETHERSCAN_API_K
 1. Run `yarn hardhat node` to start a blockchain with contracts deployed
 2. Run `scripts/transferOwnership.js` to integrate functionality with governance
 
-## File locations
-
-- **contracts/ folder**: Contracts and libraries for those contracts.
-- **deploy/ folder**: Deploy scripts that work according to hardhat-deploy plugin.
-- **scripts/ folder**: Script to deployAll, and script to Propose as admin.
-- **.env**: **Env**ironment variables. Located on the root folder of the project.
-
 # Frontend
 
 ## Setting up
@@ -75,13 +68,29 @@ _If you want to skip Etherscan verifications, don't fill out the ETHERSCAN_API_K
 ### Fleek
 
 1. Select to deploy from your repo, then choose the **Next** type
-2. Input this custom parameters:
+2. Input this **parameters**:
 
 - Build command: `yarn && yarn build && yarn export`
 - Publish directory: `out`
 - Base directory: `rainbowkit`
 
 # Troubleshooting
+
+## File locations
+
+### / (Root folder)
+
+- **/concept**: Reference files for styling.
+- **/express**: Backend files. Made using Express.
+- **/hardhat**: Smart contracts files. Made using Hardhat
+- **/rainbowkit**: Frontend files. Made using Next.js + Rainbowkit + Wagmi + ChakraUI
+
+### /hardhat (Smart contracts)
+
+- **contracts/**: Contracts and libraries for those contracts.
+- **deploy/**: Deploy scripts that work according to hardhat-deploy plugin.
+- **scripts/**: Script to deployAll, and script to Propose as admin.
+- **.env**: **Env**ironment variables. Located on the root folder of the project.
 
 ## Smart contracts
 
