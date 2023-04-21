@@ -1,8 +1,8 @@
 const { network } = require("hardhat")
-const { developmentChains } = require("../helper-hardhat-config")
 const { verify } = require("../utils/verify")
 require("dotenv").config()
 const {
+  developmentChains,
   GOVERNOR_CONTRACT: {
     NAME: GOVERNOR_CONTRACT_NAME,
     INITIAL_VOTING_DELAY,
@@ -36,6 +36,11 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     args: arguments,
     waitConfirmations: network.config.blockConfirmations || 1,
   })
+
+  if (developmentChains.includes(network.name)) {
+    log("Transfering DAO ownershit to GovernorContract...")
+    await daoModerators.transferOwnership(governorContract.address)
+  }
 
   log("-------------------------------------")
 

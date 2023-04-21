@@ -14,7 +14,7 @@ Hardhat suite to test and deploy Quaxly DAO contracts.
 4. Change name of file **.env.example** to **.env**
 5. Fill the .env file with the correct information for the blockchain you want to deploy to
 
-If you want to skip Etherscan verifications, don't fill out the ETHERSCAN_API_KEY or POLYGONSCAN_API_KEY variables.
+_If you want to skip Etherscan verifications, don't fill out the ETHERSCAN_API_KEY or POLYGONSCAN_API_KEY variables._
 
 ### Settings for Mainnet
 

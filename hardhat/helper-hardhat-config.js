@@ -1,6 +1,18 @@
 const developmentChains = ["hardhat", "localhost"]
+const daoModeratorsAddress = "../frontend/constants/daoModeratorsAddress.json"
+const daoModeratorsABI = "../frontend/constants/daoModeratorsABI.json"
+const governanceTokenAddress = "../frontend/constants/governanceTokenAddress.json"
+const governanceTokenABI = "../frontend/constants/governanceTokenABI.json"
+const governorContractAddress = "../frontend/constants/governorContractAddress.json"
+const governorContractABI = "../frontend/constants/governorContractABI.json"
 
 module.exports = {
+  daoModeratorsAddress,
+  daoModeratorsABI,
+  governanceTokenAddress,
+  governanceTokenABI,
+  governorContractAddress,
+  governorContractABI,
   developmentChains,
   DAO_MODERATORS: {
     NAME: "Lulox",
