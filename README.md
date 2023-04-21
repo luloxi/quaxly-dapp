@@ -9,8 +9,6 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
 
 # Smart contracts
 
-Hardhat suite to test and deploy Quaxly DAO contracts.
-
 ## Setting up
 
 1. Open a terminal on `hardhat` folder
@@ -85,10 +83,10 @@ _If you want to skip Etherscan verifications, don't fill out the ETHERSCAN_API_K
 
 ## /hardhat (Smart contracts)
 
+- **.env**: **Env**ironment variables. Located on the root folder of the project.
 - **contracts/**: Contracts and libraries for those contracts.
 - **deploy/**: Deploy scripts that work according to hardhat-deploy plugin.
 - **scripts/**: Script to deployAll, and script to Propose as admin.
-- **.env**: **Env**ironment variables. Located on the root folder of the project.
 
 # Troubleshooting
 
