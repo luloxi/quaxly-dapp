@@ -14,7 +14,7 @@ Hardhat suite to test and deploy Quaxly DAO contracts.
 4. Change name of file **.env.example** to **.env**
 5. Fill the .env file with the correct information for the blockchain you want to deploy to
 
-If you wanna skip Etherscan verifications, don't fill out the ETHERSCAN_API_KEY or POLYGONSCAN_API_KEY variables.
+If you want to skip Etherscan verifications, don't fill out the ETHERSCAN_API_KEY or POLYGONSCAN_API_KEY variables.
 
 ### Settings for Mainnet
 
@@ -32,7 +32,7 @@ If you wanna skip Etherscan verifications, don't fill out the ETHERSCAN_API_KEY 
 
 - PRIVATE_KEY: [Metamask](https://metamask.zendesk.com/hc/en-us/articles/)
 - MUMBAI_RPC_URL: [Alchemy (step 1 and 2)](https://www.alchemy.com/overviews/private-rpc-endpoint)
-- (optional) POLYGONSCAN_API_KEY: [Register and get one](https://polygonscan.com/apis)
+- (optional) POLYGONSCAN_API_KEY: [Polygonscan](https://polygonscan.com/apis)
 
 ## Deploying
 
@@ -52,8 +52,6 @@ If you wanna skip Etherscan verifications, don't fill out the ETHERSCAN_API_KEY 
 - **deploy/ folder**: Deploy scripts that work according to hardhat-deploy plugin.
 - **scripts/ folder**: Script to deployAll, and script to Propose as admin.
 - **.env**: **Env**ironment variables. Located on the root folder of the project.
-
-For any troubles, visit the [Troubleshooting](#troubleshooting) section.
 
 ## Troubleshooting
 
