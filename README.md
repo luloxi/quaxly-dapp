@@ -1,6 +1,8 @@
 # Quaxly DAO
 
-Quadratic voting DAO on a full stack monorepo
+Quadratic voting DAO on a full stack monorepo.
+
+Contracts by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadratic-voting-dao)
 
 # Smart contracts
 
