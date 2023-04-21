@@ -2,16 +2,16 @@
 
 Suite to deploy and test Quaxly DAO contracts.
 
-**How to use:**
+# Smart contracts
 
-1. Create and fill a **.env** file with the data specified in **.env.example**
-2. Run `yarn` on this folder.
+1. Open a terminal on `hardhat` folder
+2. Run `yarn` on hardhat folder to install dependencies.
+3. Change name of file **.env.example** to **.env**
+4. Fill in the corresponding variables to the blockchain you want to deploy to
 
 ## Filling the .env file
 
-Fill just the variables for the blockchain you want to deploy to.
-
-- NOTE: If you wanna skip Etherscan verifications, don't fill out the ETHERSCAN_API_KEY or POLYGONSCAN_API_KEY variables.
+If you wanna skip Etherscan verifications, don't fill out the ETHERSCAN_API_KEY or POLYGONSCAN_API_KEY variables.
 
 ### Deploying to Mainnet
 
@@ -40,25 +40,24 @@ Fill just the variables for the blockchain you want to deploy to.
 
 For any troubles, visit the [Troubleshooting](#troubleshooting) section.
 
-# Troubleshooting
+## Troubleshooting
 
-## General errors
+### General errors
 
 - Did you **set the .env file** right?
 - **Did you save** after changingthe .env file?
 - Delete **"artifacts"** and **"cache"** folder and try again.
 
-## "nonce too low" / Pending transaction stuck:
+### "nonce too low" / Pending transaction stuck:
 
 If you get this error when submitting level instance, it's because you used some nonces to send the transactions that attack the level. In your MetaMask, go to **Settings > Advanced > Reset Account**
 
-## Don't have Goerli ETH/Mumbai MATIC
+### Don't have Goerli ETH/Mumbai MATIC
 
 - Get some Goerli ETH here: [Chainlink Faucet](https://faucets.chain.link/) - [Alchemy Faucet](https://goerlifaucet.com/)
 - Get some Mumbai MATIC here: [Mumbai Faucet](https://mumbaifaucet.com/)
 
-## Don't have yarn
+### Don't have yarn
 
 - Just enter `npm install --global yarn` on your console.
-- Don't have NPM either? [Go get the LTS champ!](https://nodejs.org/en/download/)
-- Don't know how to use it? Search how to :)
+- Don't have NPM either? [Get the LTS version!](https://nodejs.org/en/download/)
