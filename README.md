@@ -32,12 +32,14 @@ _If you want to skip Etherscan verifications, don't fill out the ETHERSCAN_API_K
 - PRIVATE_KEY: [Metamask](https://metamask.zendesk.com/hc/en-us/articles/)
 - GOERLI_RPC URL: [Alchemy (step 1 and 2)](https://www.alchemy.com/overviews/private-rpc-endpoint)
 - (optional) ETHERSCAN_API_KEY: [Etherscan](https://info.etherscan.com/api-keys/)
+- Get some Goerli ETH here: [Chainlink Faucet](https://faucets.chain.link/) - [Alchemy Faucet](https://goerlifaucet.com/)
 
 ### Settings for Mumbai Testnet
 
 - PRIVATE_KEY: [Metamask](https://metamask.zendesk.com/hc/en-us/articles/)
 - MUMBAI_RPC_URL: [Alchemy (step 1 and 2)](https://www.alchemy.com/overviews/private-rpc-endpoint)
 - (optional) POLYGONSCAN_API_KEY: [Polygonscan](https://polygonscan.com/apis)
+- Get some Mumbai MATIC here: [Mumbai Faucet](https://mumbaifaucet.com/)
 
 ## Deploying
 
@@ -79,11 +81,6 @@ _If you want to skip Etherscan verifications, don't fill out the ETHERSCAN_API_K
 ### "nonce too low" / Pending transaction stuck:
 
 If you get this error when trying to use your wallet again after using it for interacting with the blockchain with this repo, it's because you used some nonces to send the transactions that deploy or interact with the contracts. In your MetaMask, go to **Settings > Advanced > Reset Account**
-
-### Don't have Goerli ETH/Mumbai MATIC
-
-- Get some Goerli ETH here: [Chainlink Faucet](https://faucets.chain.link/) - [Alchemy Faucet](https://goerlifaucet.com/)
-- Get some Mumbai MATIC here: [Mumbai Faucet](https://mumbaifaucet.com/)
 
 ### Don't have yarn
 
