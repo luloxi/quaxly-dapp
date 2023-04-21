@@ -10,8 +10,11 @@ export function ProposalVotes({ proposalId }) {
   const [againstVotes, setAgainstVotes] = useState(0)
   const [forVotes, setForVotes] = useState(0)
 
+  /* Replace with a dynamic chain component */
+  const GovernorContractAddress = governorContractAddress["31337"][0]
+
   useContractRead({
-    addressOrName: governorContractAddress,
+    addressOrName: GovernorContractAddress,
     contractInterface: governorContractABI,
     functionName: "proposalVotes",
     args: proposalId,

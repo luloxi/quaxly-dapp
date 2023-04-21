@@ -40,9 +40,13 @@ export function ProposeForm() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const toast = useToast()
 
+  /* Replace with a dynamic chain component */
+  const GovernorContractAddress = governorContractAddress["31337"][0]
+  const DAOModeratorsAddress = daoModeratorsAddress["31337"][0]
+
   const { write } = useContractWrite({
     mode: "recklesslyUnprepared",
-    addressOrName: governorContractAddress,
+    addressOrName: GovernorContractAddress,
     contractInterface: governorContractABI,
     functionName: "propose",
     onSuccess() {
@@ -106,7 +110,7 @@ export function ProposeForm() {
               const { name, email, moderatorAddress } = values
               write({
                 recklesslySetUnpreparedArgs: [
-                  [daoModeratorsAddress],
+                  [DAOModeratorsAddress],
                   [0],
                   [getCalldata(name, email, moderatorAddress)],
                   `Proposing moderator ${name} with email ${email} and wallet address ${moderatorAddress}`,

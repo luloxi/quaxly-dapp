@@ -1,27 +1,30 @@
+import { ConnectButton } from "@rainbow-me/rainbowkit"
+// import type { NextPage } from "next";
 import Head from "next/head"
-import * as React from "react"
 import { useAccount } from "wagmi"
 import { AvailableVotingPower, DAOModerators, Header, ListProposals } from "../components"
 import { useIsMounted } from "../hooks"
 import { Heading, Grid, GridItem } from "@chakra-ui/react"
+import styles from "../styles/Home.module.css"
 
-function Home() {
+// const Home: NextPage = () => {
+const Home = () => {
   const isMounted = useIsMounted()
   const { isConnected } = useAccount()
 
   return (
-    <>
+    <div className={styles.container}>
       <Head>
-        <title>Quadratic voting DAO</title>
-        <meta
-          name="description"
-          content="Election of the moderators of the DAO through quadratic voting"
-        />
-        <link rel="icon" href="/favicon.ico" />
+        <title>Quaxly DAO</title>
+        <meta content="Quadratic voting DAO" name="description" />
+        <link href="favicon.ico" rel="icon" />
       </Head>
-      <Header />
 
-      <main>
+      {/* <Header /> */}
+
+      <main className={styles.main}>
+        <ConnectButton />
+
         <Grid templateColumns="repeat(12, 1fr)" width="100vw" height="100vh">
           <GridItem colSpan={1} />
           <GridItem colSpan={5} borderRight="1px solid #2d2d2d" padding="0 16px 16px 16px">
@@ -48,10 +51,16 @@ function Home() {
               </>
             )}
           </GridItem>
-          <GridItem colSpan={1} />
+          {/* <GridItem colSpan={1} /> */}
         </Grid>
       </main>
-    </>
+
+      <footer className={styles.footer}>
+        <a href="https://rainbow.me" rel="noopener noreferrer" target="_blank">
+          Made with ❤️ by your frens at 🌈
+        </a>
+      </footer>
+    </div>
   )
 }
 

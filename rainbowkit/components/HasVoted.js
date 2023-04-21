@@ -9,8 +9,11 @@ export function HasVoted({ children, proposalId }) {
   const [error, setError] = useState("")
   const [hasVoted, setHasVoted] = useState(false)
 
+  /* Replace with a dynamic chain component */
+  const GovernorContractAddress = governorContractAddress["31337"][0]
+
   useContractRead({
-    addressOrName: governorContractAddress,
+    addressOrName: GovernorContractAddress,
     contractInterface: governorContractABI,
     functionName: "hasVoted",
     args: [proposalId, address],

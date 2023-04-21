@@ -8,8 +8,11 @@ export function AvailableVotingPower({ children }) {
   const [availableVoting, setAvailableVoting] = useState(0)
   const [error, setError] = useState("")
 
+  /* Replace with a dynamic chain component */
+  const GovernorContractAddress = governorContractAddress["31337"][0]
+
   useContractRead({
-    addressOrName: governorContractAddress,
+    addressOrName: GovernorContractAddress,
     contractInterface: governorContractABI,
     functionName: "getAvailableVotingPower",
     onSuccess(data) {

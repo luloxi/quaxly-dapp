@@ -8,8 +8,11 @@ export function DAOModerators() {
   const [data, setData] = useState([])
   const [error, setError] = useState("")
 
+  /* Replace with a dynamic chain component */
+  const DAOModeratorsAddress = daoModeratorsAddress["31337"][0]
+
   useContractRead({
-    addressOrName: daoModeratorsAddress,
+    addressOrName: DAOModeratorsAddress,
     contractInterface: daoModeratorsABI,
     functionName: "getModerators",
     onSuccess(data) {

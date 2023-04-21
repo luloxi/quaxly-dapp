@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { ethers } from "ethers"
-import { useAccount, useBlockNumber, useContractRead, useProvider } from "wagmi"
+import { useAccount, useBlockNumber, useContractRead, useProvider, useNetwork } from "wagmi"
 import { governorContractABI, governorContractAddress } from "../constants"
 import { HasVoted, Proposal } from "./index"
 
@@ -13,8 +13,21 @@ export function ListProposals({ onlyActive, onlySuccessful, availableVoting }) {
   const [proposals, setProposals] = useState([])
   const [votingPeriod, setVotingPeriod] = useState(0)
 
+  /* This could be a separate component */
+  const { chain } = useNetwork()
+
+  // console.log(chain);
+  // console.log("Chain.id:", chain.id);
+
+  const multichainGovernorContractAddress = governorContractAddress["31337"][0]
+  // const multichainGovernorContractAddress =
+  //   chain.id in governorContractAddress
+  //     ? governorContractAddress[chain.id][0]
+  //     : null;
+  // console.log(multichainGovernorContractAddress);
+
   useContractRead({
-    addressOrName: governorContractAddress,
+    addressOrName: multichainGovernorContractAddress,
     contractInterface: governorContractABI,
     functionName: "votingPeriod",
     onSuccess(data) {
@@ -27,8 +40,8 @@ export function ListProposals({ onlyActive, onlySuccessful, availableVoting }) {
 
   useEffect(() => {
     const governorContract = new ethers.Contract(
-      governorContractAddress,
-      governorContractABI.abi,
+      multichainGovernorContractAddress,
+      governorContractABI,
       provider
     )
     let eventFilter = governorContract.filters.ProposalCreated()

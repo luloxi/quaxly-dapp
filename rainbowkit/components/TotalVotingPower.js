@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useAccount, useContractRead } from "wagmi"
+import { useAccount, useContractRead, useNetwork } from "wagmi"
 import { governanceTokenABI, governanceTokenAddress } from "../constants"
 import { LockIcon } from "@chakra-ui/icons"
 
@@ -9,8 +9,21 @@ export function TotalVotingPower() {
   const [totalVoting, setTotalVoting] = useState(0)
   const [error, setError] = useState("")
 
+  /* This could be a separate component */
+  const { chain } = useNetwork()
+
+  // console.log(chain);
+  // console.log("Chain.id:", chain.id);
+
+  const multichainGovernanceTokenAddress = governanceTokenAddress["31337"][0]
+  // const multichainGovernorContractAddress =
+  //   chain.id in governorContractAddress
+  //     ? governorContractAddress[chain.id][0]
+  //     : null;
+  // console.log(multichainGovernorContractAddress);
+
   useContractRead({
-    addressOrName: governanceTokenAddress,
+    addressOrName: multichainGovernanceTokenAddress,
     contractInterface: governanceTokenABI,
     functionName: "balanceOf",
     args: address,
