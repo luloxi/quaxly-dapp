@@ -7,9 +7,20 @@ Quadratic voting DAO on a full stack monorepo.
 
 Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadratic-voting-dao)
 
+# Index
+
+- [Smart contracts](#smart-contracts)
+  - [Setting up Hardhat](#setting-up-hardhat)
+  - [Deploying](#deploying)
+- [Frontend](#frontend)
+  - [Setting up Rainbowkit](#setting-up-rainbowkit)
+  - [Deploying to Fleek]()
+- [File locations](#file-locations)
+- [Troubleshooting](#troubleshooting)
+
 # Smart contracts
 
-## Setting up
+## Setting up Hardhat
 
 1. Open a terminal on `hardhat` folder
 2. Run `yarn` on hardhat folder to install dependencies.
@@ -54,7 +65,7 @@ _If you want to skip Etherscan verifications, don't fill out the ETHERSCAN_API_K
 
 # Frontend
 
-## Setting up
+## Setting up Rainbowkit
 
 1. Open a terminal on `rainbowkit` folder
 2. Run `yarn` on hardhat folder to install dependencies.
@@ -90,7 +101,7 @@ _If you want to skip Etherscan verifications, don't fill out the ETHERSCAN_API_K
 
 # Troubleshooting
 
-## Smart contracts
+## Common smart contracts problems
 
 - Did you **set the .env file** right?
 - **Did you save** after changing the .env file?
