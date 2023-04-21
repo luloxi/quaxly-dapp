@@ -4,54 +4,47 @@ Quadratic voting DAO on a full stack monorepo
 
 # Smart contracts
 
-Suite to deploy and test Quaxly DAO contracts.
+Hardhat suite to test and deploy Quaxly DAO contracts.
 
 ## Setting up
 
 1. Open a terminal on `hardhat` folder
 2. Run `yarn` on hardhat folder to install dependencies.
-3. Change name of file **.env.example** to **.env**
-4. [Fill the .env with variables](#filling-the-env-file) for the blockchain you want to deploy to
-
-## Deploying
-
-### On testnet/mainnet
-
-- Run `yarn hardhat run scripts/deployAll --network BLOCKCHAIN_NAME_HERE` but replacing BLOCKCHAIN_NAME_HERE for `mumbai`, `goerli`, or `mainnet`
-
-### On local node
-
-- Run `yarn hardhat node` to start a blockchain with contracts deployed
-
-In a future version this may be prompted by the script
-
-## Testing
-
-- Run `yarn hardhat test`
-
-In a future version this may include staging tests
-
-## Filling the .env file
+3. (optional) Run `yarn hardhat test` to run tests
+4. Change name of file **.env.example** to **.env**
+5. Fill the .env file with the correct information for the blockchain you want to deploy to
 
 If you wanna skip Etherscan verifications, don't fill out the ETHERSCAN_API_KEY or POLYGONSCAN_API_KEY variables.
 
-### Deploying to Mainnet
+### Settings for Mainnet
 
 - PRIVATE_KEY: [Metamask](https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-export-an-account-s-private-key)
 - MAINNET_RPC URL: [Alchemy (step 1 and 2)](https://www.alchemy.com/overviews/private-rpc-endpoint)
 - (optional) ETHERSCAN_API_KEY: [Etherscan](https://info.etherscan.com/api-keys/)
 
-### Deploying to Goerli Testnet
+### Settings for Goerli Testnet
 
 - PRIVATE_KEY: [Metamask](https://metamask.zendesk.com/hc/en-us/articles/)
 - GOERLI_RPC URL: [Alchemy (step 1 and 2)](https://www.alchemy.com/overviews/private-rpc-endpoint)
 - (optional) ETHERSCAN_API_KEY: [Etherscan](https://info.etherscan.com/api-keys/)
 
-### Deploying to Mumbai Testnet
+### Settings for Mumbai Testnet
 
 - PRIVATE_KEY: [Metamask](https://metamask.zendesk.com/hc/en-us/articles/)
 - MUMBAI_RPC_URL: [Alchemy (step 1 and 2)](https://www.alchemy.com/overviews/private-rpc-endpoint)
 - (optional) POLYGONSCAN_API_KEY: [Register and get one](https://polygonscan.com/apis)
+
+## Deploying
+
+### On testnets and mainnet
+
+- Mainnet: `yarn hardhat run scripts/deployAll --network mainnet`
+- Goerli: `yarn hardhat run scripts/deployAll --network goerli`
+- Mumbai: `yarn hardhat run scripts/deployAll --network mumbai`
+
+### On local node
+
+- Run `yarn hardhat node` to start a blockchain with contracts deployed
 
 ## File locations
 
