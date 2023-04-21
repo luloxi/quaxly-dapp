@@ -54,9 +54,18 @@ _If you want to skip Etherscan verifications, don't fill out the ETHERSCAN_API_K
 - **scripts/ folder**: Script to deployAll, and script to Propose as admin.
 - **.env**: **Env**ironment variables. Located on the root folder of the project.
 
-## Troubleshooting
+# Frontend
 
-### General errors
+## Setting up
+
+1. Open a terminal on `rainbowkit` folder
+2. Run `yarn` on hardhat folder to install dependencies.
+3. Run `yarn dev`
+4. Open [http://localhost:3000](http://localhost:3000) in your web browser
+
+# Troubleshooting
+
+## Smart contracts
 
 - Did you **set the .env file** right?
 - **Did you save** after changing the .env file?
