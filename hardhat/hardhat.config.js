@@ -3,7 +3,10 @@ require("@nomiclabs/hardhat-etherscan")
 require("dotenv").config()
 require("hardhat-deploy")
 
-const PRIVATE_KEY = process.env.PRIVATE_KEY || ""
+const PRIVATE_KEY =
+  process.env.PRIVATE_KEY || "0xdbda1821b80551c9d65939329250298aa3472ba22feea921c0cf5d620ea67b97"
+// Placeholder to enable hardhat tests without filling out the PRIVATE_KEY variable in the .env file
+// DO NOT USE THIS PRIVATE KEY FOR INTERACTING WITH REAL FUNDS
 
 const MAINNET_RPC_URL = process.env.MAINNET_RPC_URL || ""
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || ""
