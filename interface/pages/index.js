@@ -12,7 +12,7 @@ function Home() {
   return (
     <>
       <Head>
-        <title>Quadratic voting DAO</title>
+        <title>Quaxly DAO</title>
         <meta
           name="description"
           content="Election of the moderators of the DAO through quadratic voting"
