@@ -89,8 +89,6 @@ Running this commands will connect the local blockchain to the frontend
 
 ## Deploying to Fleek
 
-### Fleek
-
 1. Select to deploy from your repo, then choose the **Next** type
 2. Input this **parameters**:
 
