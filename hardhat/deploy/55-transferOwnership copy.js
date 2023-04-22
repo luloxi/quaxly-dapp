@@ -1,7 +1,4 @@
-const {
-  // network,
-  // ethers,
-} = require("hardhat")
+// const { ethers } = require("hardhat")
 require("dotenv").config()
 
 module.exports = async ({ getNamedAccounts, deployments }) => {
@@ -15,8 +12,6 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   await daoModerators.transferOwnership(governorContract.address)
 
   console.log("Done!")
-
-  log("-------------------------------------")
 }
 
 module.exports.tags = ["all", "transferownership"]
