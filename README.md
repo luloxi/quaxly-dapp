@@ -18,10 +18,6 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
   - [Connecting to different chains](#connecting-to-different-chains)
   - [Deploying to Fleek]()
 - [File locations](#file-locations)
-  - [/ (Root folder)](#root-folder)
-  - [/hardhat (Smart contracts)](#hardhat-smart-contracts)
-  - [/interface (Frontend)](#interface-frontend)
-  - [/express (Backend)](#)
 - [Troubleshooting](#troubleshooting)
 
 # Quick setup
