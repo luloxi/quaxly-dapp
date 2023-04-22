@@ -11,6 +11,7 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
 
 - [Smart contracts](#smart-contracts)
   - [Setting up Hardhat](#setting-up-hardhat)
+  - [Testing locally](#testing-locally)
   - [Deploying](#deploying)
 - [Frontend](#frontend)
   - [Setting up Rainbowkit](#setting-up-rainbowkit)
@@ -30,7 +31,7 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
 2. Run `yarn` on hardhat folder to install dependencies.
 3. (optional) Run `yarn hardhat test` to run tests
 
-### Test locally
+## Testing locally
 
 Running this commands will connect the local blockchain to the frontend
 

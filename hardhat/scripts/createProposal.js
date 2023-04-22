@@ -4,7 +4,7 @@ const {
   DAO_MODERATORS: { NEW_MODERATORS, SET_NEW_MODERATOR_FN },
 } = require("../helper-hardhat-config")
 
-const proposalDescription = "Example proposal description"
+const proposalDescription = "Example proposal"
 
 const createProposal = async (GovernorContract, GovernanceToken, DAOModerators, moderatorIndex) => {
   const calldata = getCalldata(DAOModerators, moderatorIndex)
