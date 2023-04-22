@@ -1,7 +1,3 @@
-const {
-  // network,
-  // ethers,
-} = require("hardhat")
 require("dotenv").config()
 
 const {
@@ -40,7 +36,7 @@ const getProposalData = (DAOModerators, moderatorIndex) => {
 }
 
 module.exports = async ({ getNamedAccounts, deployments }) => {
-  const { log, get } = deployments
+  const { log } = deployments
   const { deployer } = await getNamedAccounts()
 
   const governorContract = await ethers.getContract("GovernorContract", deployer)
@@ -49,15 +45,15 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
 
   // If on a development chain, continue
   if (developmentChains.includes(network.name)) {
-    console.log("Delegating voting power to self (read ERC20Votes docs for more info)...")
+    log("Delegating voting power to self...")
     await governanceToken.delegate(deployer)
 
-    console.log("Creating sample proposals...")
+    log("Creating sample proposals...")
     await createProposal(governorContract, daoModerators, 0)
     await createProposal(governorContract, daoModerators, 1)
   }
 
-  console.log("Done!")
+  log("Done!")
 
   log("-------------------------------------")
 }

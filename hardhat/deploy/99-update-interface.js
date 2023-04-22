@@ -10,15 +10,18 @@ const { ethers, network } = require("hardhat")
 const fs = require("fs")
 
 module.exports = async () => {
+  const { log } = deployments
   if (process.env.UPDATE_FRONT_END) {
-    console.log("Writing to INTERFACE front end...")
+    log("Updating address and ABI on interface...")
     await updateDAOModeratorsABI()
     await updateDAOModeratorsAddress()
     await updateGovernanceTokenABI()
     await updateGovernanceTokenAddress()
     await updateGovernorContractABI()
     await updateGovernorContractAddress()
-    console.log("INTERFACE front end written!")
+
+    log("Done!")
+    log("-------------------------------------")
   }
 }
 
