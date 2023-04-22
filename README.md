@@ -14,12 +14,12 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
   - [Testing locally](#testing-locally)
   - [Deploying](#deploying)
 - [Frontend](#frontend)
-  - [Setting up Rainbowkit](#setting-up-rainbowkit)
+  - [Setting up Rainbowkit](#setting-up-interface)
   - [Deploying to Fleek]()
 - [File locations](#file-locations)
   - [/ (Root folder)](#root-folder)
   - [/hardhat (Smart contracts)](#hardhat-smart-contracts)
-  - [/rainbowkit (Frontend)](#rainbowkit-frontend-folder)
+  - [/interface (Frontend)](#rainbowkit-frontend-folder)
   - [/express (Backend)](#)
 - [Troubleshooting](#troubleshooting)
 
@@ -75,9 +75,9 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
 
 # Frontend
 
-## Setting up Rainbowkit
+## Setting up interface
 
-1. Open a terminal on `rainbowkit` folder
+1. Open a terminal on `interface` folder
 2. Run `yarn` on hardhat folder to install dependencies.
 3. Run `yarn dev`
 4. Open [http://localhost:3000](http://localhost:3000) in your web browser

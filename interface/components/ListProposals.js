@@ -1,46 +1,41 @@
-import { useEffect, useState } from "react";
-import { ethers } from "ethers";
-import {
-  useAccount,
-  useBlockNumber,
-  useContractRead,
-  useProvider,
-} from "wagmi";
-import { HasVoted, Proposal } from "./index";
-import { GovernorContractABI, governorContractAddress } from "../constants";
+import { useEffect, useState } from "react"
+import { ethers } from "ethers"
+import { useAccount, useBlockNumber, useContractRead, useProvider } from "wagmi"
+import { HasVoted, Proposal } from "./index"
+import { GovernorContractABI, governorContractAddress } from "../constants"
 
 export function ListProposals({ onlyActive, onlySuccessful, availableVoting }) {
   /* Replace with a dynamic chain component */
-  const GovernorContractAddress = governorContractAddress["31337"][0];
+  const GovernorContractAddress = governorContractAddress["31337"][0]
 
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState("");
-  const { isConnected } = useAccount();
-  const provider = useProvider();
-  const { data: blockNumber } = useBlockNumber({ watch: true });
-  const [proposals, setProposals] = useState([]);
-  const [votingPeriod, setVotingPeriod] = useState(0);
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState("")
+  const { isConnected } = useAccount()
+  const provider = useProvider()
+  const { data: blockNumber } = useBlockNumber({ watch: true })
+  const [proposals, setProposals] = useState([])
+  const [votingPeriod, setVotingPeriod] = useState(0)
 
   useContractRead({
     addressOrName: GovernorContractAddress,
     contractInterface: GovernorContractABI,
     functionName: "votingPeriod",
     onSuccess(data) {
-      setVotingPeriod(data.toNumber());
+      setVotingPeriod(data.toNumber())
     },
     onError(error) {
-      setError(error);
+      setError(error)
     },
-  });
+  })
 
   useEffect(() => {
     const governorContract = new ethers.Contract(
       GovernorContractAddress,
       GovernorContractABI,
       provider
-    );
-    let eventFilter = governorContract.filters.ProposalCreated();
-    const blockMinusVotingPeriod = blockNumber - votingPeriod;
+    )
+    let eventFilter = governorContract.filters.ProposalCreated()
+    const blockMinusVotingPeriod = blockNumber - votingPeriod
 
     provider
       .getLogs({
@@ -54,26 +49,17 @@ export function ListProposals({ onlyActive, onlySuccessful, availableVoting }) {
         toBlock: "latest",
       })
       .then((logs) => {
-        setIsLoading(false);
+        setIsLoading(false)
         let proposals = logs.filter((log) => {
-          const deadline = governorContract.interface
-            .parseLog(log)
-            .args[7].toNumber();
-          return onlyActive ? deadline >= blockNumber : true;
-        });
+          const deadline = governorContract.interface.parseLog(log).args[7].toNumber()
+          // If onlyActive, only show proposals where deadline is greater than blockNumber
+          // Else, show everything
+          return onlyActive ? deadline >= blockNumber : true
+        })
 
         proposals = proposals.map((log) => {
-          const [
-            proposalId,
-            ,
-            ,
-            ,
-            ,
-            calldatas,
-            snapshot,
-            deadline,
-            description,
-          ] = governorContract.interface.parseLog(log).args;
+          const [proposalId, , , , , calldatas, snapshot, deadline, description] =
+            governorContract.interface.parseLog(log).args
 
           return {
             calldatas,
@@ -81,15 +67,15 @@ export function ListProposals({ onlyActive, onlySuccessful, availableVoting }) {
             description,
             proposalId,
             snapshot,
-          };
-        });
-        setProposals(proposals);
+          }
+        })
+        setProposals(proposals)
       })
       .catch((error) => {
-        setIsLoading(false);
-        setError(error);
-      });
-  }, [blockNumber, onlyActive, provider, votingPeriod]);
+        setIsLoading(false)
+        setError(error)
+      })
+  }, [blockNumber, onlyActive, provider, votingPeriod])
 
   return (
     <>
@@ -120,5 +106,5 @@ export function ListProposals({ onlyActive, onlySuccessful, availableVoting }) {
           )
         )}
     </>
-  );
+  )
 }

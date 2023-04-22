@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Container,
   FormControl,
   FormLabel,
@@ -16,55 +17,40 @@ import {
   Select,
   useDisclosure,
   useToast,
-} from "@chakra-ui/react";
-import { CheckIcon, InfoIcon, UnlockIcon } from "@chakra-ui/icons";
-import { useState } from "react";
-import { Field, Form, Formik } from "formik";
-import { BigNumber, ethers } from "ethers";
-import * as Yup from "yup";
-import { useAccount, useContractRead, useContractWrite } from "wagmi";
-import { supportEnum, proposalStateEnum } from "../shared/constants";
-import {
-  ProposalBlockTimestamp,
-  ProposalVotes,
-  TotalVotingPower,
-} from "./index";
-import {
-  GovernorContractABI,
-  governorContractAddress,
-  daoModeratorsAddress,
-} from "../constants";
+} from "@chakra-ui/react"
+import { CheckIcon, InfoIcon, UnlockIcon } from "@chakra-ui/icons"
+import { useState } from "react"
+import { Field, Form, Formik } from "formik"
+import { BigNumber, ethers } from "ethers"
+import * as Yup from "yup"
+import { useAccount, useContractRead, useContractWrite } from "wagmi"
+import { supportEnum, proposalStateEnum } from "../shared/constants"
+import { ProposalBlockTimestamp, ProposalVotes, TotalVotingPower } from "./index"
+import { GovernorContractABI, governorContractAddress, daoModeratorsAddress } from "../constants"
 
-export function Proposal({
-  availableVoting = 0,
-  hasVoted = false,
-  proposal,
-  onlySuccessful,
-}) {
+export function Proposal({ availableVoting = 0, hasVoted = false, proposal, onlySuccessful }) {
   /* Replace with a dynamic chain component */
-  const GovernorContractAddress = governorContractAddress["31337"][0];
-  const DAOModeratorsAddress = daoModeratorsAddress["31337"][0];
+  const GovernorContractAddress = governorContractAddress["31337"][0]
+  const DAOModeratorsAddress = daoModeratorsAddress["31337"][0]
 
-  const { isConnected } = useAccount();
-  const [justVoted, setJustVoted] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [proposalState, setProposalState] = useState("");
-  const [error, setError] = useState("");
+  const { isConnected } = useAccount()
+  const [justVoted, setJustVoted] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+  const [proposalState, setProposalState] = useState("")
+  const [error, setError] = useState("")
 
-  const { calldatas, deadline, description, proposalId, snapshot } = proposal;
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const toast = useToast();
+  const { calldatas, deadline, description, proposalId, snapshot } = proposal
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const toast = useToast()
 
-  const _availableVoting = Math.floor(Math.sqrt(availableVoting));
-  const votingWeightOptions = [...Array(_availableVoting).keys()].map((e) =>
-    e.toString()
-  );
-  const supportOptions = Object.keys(supportEnum);
+  const _availableVoting = Math.floor(Math.sqrt(availableVoting))
+  const votingWeightOptions = [...Array(_availableVoting).keys()].map((e) => e.toString())
+  const supportOptions = Object.keys(supportEnum)
 
   const VotingSchema = Yup.object().shape({
     support: Yup.string().oneOf(supportOptions).required("Required"),
     votingWeight: Yup.string().oneOf(votingWeightOptions).required("Required"),
-  });
+  })
 
   useContractRead({
     addressOrName: GovernorContractAddress,
@@ -72,17 +58,17 @@ export function Proposal({
     functionName: "state",
     args: proposalId,
     onSuccess(data) {
-      setIsLoading(false);
+      setIsLoading(false)
       if (data || data === 0) {
-        setProposalState(proposalStateEnum[data]);
+        setProposalState(proposalStateEnum[data])
       }
     },
     onError(error) {
-      setIsLoading(false);
-      setError(error);
+      setIsLoading(false)
+      setError(error)
     },
     watch: true,
-  });
+  })
 
   const { write } = useContractWrite({
     mode: "recklesslyUnprepared",
@@ -90,13 +76,13 @@ export function Proposal({
     contractInterface: GovernorContractABI,
     functionName: "vote",
     onSuccess() {
-      setJustVoted(true);
+      setJustVoted(true)
       toast({
         title: "Vote submitted succesfully",
         status: "success",
         duration: 9000,
         isClosable: true,
-      });
+      })
     },
     onError(error) {
       toast({
@@ -108,11 +94,11 @@ export function Proposal({
           maxHeight: "500px",
         },
         isClosable: true,
-      });
+      })
     },
-  });
+  })
 
-  const descriptionHash = ethers.utils.id(description);
+  const descriptionHash = ethers.utils.id(description)
 
   const { write: execute } = useContractWrite({
     mode: "recklesslyUnprepared",
@@ -125,7 +111,7 @@ export function Proposal({
         status: "success",
         duration: 9000,
         isClosable: true,
-      });
+      })
     },
     onError(error) {
       toast({
@@ -137,18 +123,16 @@ export function Proposal({
           maxHeight: "500px",
         },
         isClosable: true,
-      });
+      })
     },
-  });
+  })
 
   const canVote =
-    proposalState === "Active" && _availableVoting !== 0 && hasVoted
-      ? !hasVoted
-      : !justVoted;
+    proposalState === "Active" && _availableVoting !== 0 && hasVoted ? !hasVoted : !justVoted
 
   function handleVote() {
     if (canVote) {
-      onOpen();
+      onOpen()
     }
   }
 
@@ -160,14 +144,8 @@ export function Proposal({
         </span>
       )}
       {isLoading && <span>Loading proposal state ...</span>}
-      {((onlySuccessful && proposalState === "Succeeded") ||
-        !onlySuccessful) && (
-        <Box
-          border="1px solid #2d2d2d"
-          margin="12px"
-          padding="24px"
-          borderRadius="12px"
-        >
+      {((onlySuccessful && proposalState === "Succeeded") || !onlySuccessful) && (
+        <Box bgColor="#e9c46a" color="#333" margin="12px" padding="24px" borderRadius="12px">
           <Heading as="h3" size="sm" marginBottom="16px">
             {description}
           </Heading>
@@ -190,11 +168,7 @@ export function Proposal({
           </Grid>
 
           {canVote && isConnected && (
-            <Container
-              display="flex"
-              justifyContent="space-around"
-              marginTop="16px"
-            >
+            <Container display="flex" justifyContent="space-around" marginTop="16px">
               <div>
                 <TotalVotingPower />
                 <p>
@@ -228,13 +202,8 @@ export function Proposal({
         </Box>
       )}
       <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay
-          bg="#211f24"
-          backdropFilter="auto"
-          backdropInvert="80%"
-          backdropBlur="2px"
-        />
-        <ModalContent bg="#211f24" border="white 1px solid">
+        <ModalOverlay bg="#333" backdropFilter="auto" backdropInvert="80%" backdropBlur="2px" />
+        <ModalContent bg="#f4a261" color="#333">
           <ModalHeader>
             Vote for &quot;{description.substring(0, 80)}
             {description.length > 80 && "..."}&quot;
@@ -247,19 +216,15 @@ export function Proposal({
             }}
             validationSchema={VotingSchema}
             onSubmit={(values, actions) => {
-              let { support, votingWeight } = values;
-              support = BigNumber.from(support);
-              votingWeight = BigNumber.from(votingWeight);
+              let { support, votingWeight } = values
+              support = BigNumber.from(support)
+              votingWeight = BigNumber.from(votingWeight)
 
               write({
-                recklesslySetUnpreparedArgs: [
-                  proposalId,
-                  votingWeight,
-                  support,
-                ],
-              });
-              actions.setSubmitting(false);
-              onClose();
+                recklesslySetUnpreparedArgs: [proposalId, votingWeight, support],
+              })
+              actions.setSubmitting(false)
+              onClose()
             }}
           >
             {({ errors, touched }) => (
@@ -269,16 +234,15 @@ export function Proposal({
                     {({ field }) => (
                       <FormControl>
                         <FormLabel>Your support for this proposal</FormLabel>
-                        <Select id="support" onChange={field.onChange}>
+                        <Select bgColor={"white"} id="support" onChange={field.onChange}>
+                          <option>- select an option -</option>
                           {supportOptions.map((key, i) => (
                             <option key={i} value={key}>
                               {supportEnum[key]}
                             </option>
                           ))}
                         </Select>
-                        {errors.support && touched.support && (
-                          <span>{errors.support}</span>
-                        )}
+                        {errors.support && touched.support && <span>{errors.support}</span>}
                       </FormControl>
                     )}
                   </Field>
@@ -286,10 +250,8 @@ export function Proposal({
                   <Field name="votingWeight">
                     {({ field }) => (
                       <FormControl>
-                        <FormLabel>
-                          Your voting weight for this proposal
-                        </FormLabel>
-                        <Select id="votingWeight" onChange={field.onChange}>
+                        <FormLabel>Your voting weight for this proposal</FormLabel>
+                        <Select bgColor="white" id="votingWeight" onChange={field.onChange}>
                           {votingWeightOptions.map((weight) => (
                             <option key={weight} value={weight}>
                               {weight}
@@ -305,7 +267,16 @@ export function Proposal({
                 </ModalBody>
 
                 <ModalFooter>
-                  <button type="submit">Submit</button>
+                  <Button
+                    bgColor={"#2a9d8f"}
+                    color={"#FFF"}
+                    _hover={{ background: "#e76f51", border: 0 }}
+                    type="submit"
+                  >
+                    Submit
+                  </Button>
+
+                  {/* <button type="submit">Submit</button> */}
                 </ModalFooter>
               </Form>
             )}
@@ -313,5 +284,5 @@ export function Proposal({
         </ModalContent>
       </Modal>
     </>
-  );
+  )
 }

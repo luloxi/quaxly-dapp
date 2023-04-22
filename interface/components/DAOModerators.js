@@ -1,30 +1,30 @@
-import { useState } from "react";
-import { useContractRead } from "wagmi";
-import { DAOModeratorsABI, daoModeratorsAddress } from "../constants";
-import { Heading, Grid, GridItem } from "@chakra-ui/react";
+import { useState } from "react"
+import { useContractRead } from "wagmi"
+import { DAOModeratorsABI, daoModeratorsAddress } from "../constants"
+import { Heading, Grid, GridItem } from "@chakra-ui/react"
 
 export function DAOModerators() {
   /* Replace with a dynamic chain component */
-  const DAOModeratorsAddress = daoModeratorsAddress["31337"][0];
+  const DAOModeratorsAddress = daoModeratorsAddress["31337"][0]
 
-  const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState([]);
-  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(true)
+  const [data, setData] = useState([])
+  const [error, setError] = useState("")
 
   useContractRead({
     addressOrName: DAOModeratorsAddress,
     contractInterface: DAOModeratorsABI,
     functionName: "getModerators",
     onSuccess(data) {
-      setIsLoading(false);
-      setData(data);
+      setIsLoading(false)
+      setData(data)
     },
     onError(error) {
-      setIsLoading(false);
-      setError(error);
+      setIsLoading(false)
+      setError(error)
     },
     watch: true,
-  });
+  })
 
   return (
     <>
@@ -34,13 +34,7 @@ export function DAOModerators() {
         </span>
       )}
       {isLoading && <span>Loading DAO Moderators ...</span>}
-      <Heading
-        as="h2"
-        size="lg"
-        noOfLines={1}
-        padding="16px 0"
-        textAlign="center"
-      >
+      <Heading as="h2" size="lg" noOfLines={1} padding="16px 0" textAlign="center">
         Current DAO moderators
       </Heading>
       {data.length > 0 &&
@@ -49,7 +43,8 @@ export function DAOModerators() {
             templateColumns="repeat(12, 1fr)"
             gap={4}
             key={i}
-            border="1px solid #2d2d2d"
+            bgColor={"#e76f51"}
+            color={"#000"}
             margin="12px"
             padding="24px"
             borderRadius="12px"
@@ -72,5 +67,5 @@ export function DAOModerators() {
           </Grid>
         ))}
     </>
-  );
+  )
 }

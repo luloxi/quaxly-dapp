@@ -1,5 +1,6 @@
 import {
   FormControl,
+  Button,
   FormLabel,
   Input,
   Modal,
@@ -11,17 +12,17 @@ import {
   ModalCloseButton,
   useDisclosure,
   useToast,
-} from "@chakra-ui/react";
-import { Field, Form, Formik } from "formik";
-import { useContractWrite } from "wagmi";
-import { ethers } from "ethers";
-import * as Yup from "yup";
+} from "@chakra-ui/react"
+import { Field, Form, Formik } from "formik"
+import { useContractWrite } from "wagmi"
+import { ethers } from "ethers"
+import * as Yup from "yup"
 import {
   GovernorContractABI,
   governorContractAddress,
   DAOModeratorsABI,
   daoModeratorsAddress,
-} from "../constants";
+} from "../constants"
 
 const ProposeSchema = Yup.object().shape({
   name: Yup.string().required("Required"),
@@ -29,24 +30,20 @@ const ProposeSchema = Yup.object().shape({
   moderatorAddress: Yup.string()
     .test((address) => ethers.utils.isAddress(address))
     .required("Required"),
-});
+})
 
 const getCalldata = (name, email, moderatorAddress) => {
-  const _interface = new ethers.utils.Interface(DAOModeratorsABI);
-  return _interface.encodeFunctionData("setNewModerator", [
-    name,
-    email,
-    moderatorAddress,
-  ]);
-};
+  const _interface = new ethers.utils.Interface(DAOModeratorsABI)
+  return _interface.encodeFunctionData("setNewModerator", [name, email, moderatorAddress])
+}
 
 export function ProposeForm() {
   /* Replace with a dynamic chain component */
-  const GovernorContractAddress = governorContractAddress["31337"][0];
-  const DAOModeratorsAddress = daoModeratorsAddress["31337"][0];
+  const GovernorContractAddress = governorContractAddress["31337"][0]
+  const DAOModeratorsAddress = daoModeratorsAddress["31337"][0]
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const toast = useToast();
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const toast = useToast()
 
   const { write } = useContractWrite({
     mode: "recklesslyUnprepared",
@@ -62,25 +59,22 @@ export function ProposeForm() {
           maxHeight: "500px",
         },
         isClosable: true,
-      });
+      })
     },
     onError(error) {
-      const minimumVotingPeriodNotReached = error.reason?.includes(
-        "Voting period should be longer"
-      );
+      const minimumVotingPeriodNotReached = error.reason?.includes("Voting period should be longer")
 
       if (minimumVotingPeriodNotReached) {
         toast({
           title: "Minimum voting period not reached",
-          description:
-            "Please submit a proposal after current proposals voting period ends",
+          description: "Please submit a proposal after current proposals voting period ends",
           status: "error",
           duration: 15000,
           containerStyle: {
             maxHeight: "500px",
           },
           isClosable: true,
-        });
+        })
       } else {
         toast({
           title: "Error submitting the proposal",
@@ -91,25 +85,27 @@ export function ProposeForm() {
             maxHeight: "500px",
           },
           isClosable: true,
-        });
+        })
       }
     },
-  });
+  })
 
   return (
     <>
-      <button style={{ margin: "0 16px" }} onClick={onOpen}>
+      {/* <button style={{ margin: "0 16px" }} onClick={onOpen}>
         Propose a new moderator
-      </button>
+      </button> */}
+      <Button
+        bgColor={"#2a9d8f"}
+        _hover={{ bgColor: "#e9c46a", color: "#000", border: 0 }}
+        onClick={onOpen}
+      >
+        Propose a new moderator
+      </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay
-          bg="#211f24"
-          backdropFilter="auto"
-          backdropInvert="80%"
-          backdropBlur="2px"
-        />
-        <ModalContent bg="#211f24" border="white 1px solid">
-          <ModalHeader>Propose a new moderator for the DAO</ModalHeader>
+        <ModalOverlay bg="#333" backdropFilter="auto" backdropInvert="80%" backdropBlur="2px" />
+        <ModalContent bg="#e9c46a" border="white 1px solid">
+          <ModalHeader color={"black"}>Propose a new moderator for the DAO</ModalHeader>
           <ModalCloseButton />
           <Formik
             initialValues={{
@@ -119,7 +115,7 @@ export function ProposeForm() {
             }}
             validationSchema={ProposeSchema}
             onSubmit={(values, actions) => {
-              const { name, email, moderatorAddress } = values;
+              const { name, email, moderatorAddress } = values
               write({
                 recklesslySetUnpreparedArgs: [
                   [DAOModeratorsAddress],
@@ -127,22 +123,20 @@ export function ProposeForm() {
                   [getCalldata(name, email, moderatorAddress)],
                   `Proposing moderator ${name} with email ${email} and wallet address ${moderatorAddress}`,
                 ],
-              });
-              actions.setSubmitting(false);
-              onClose();
+              })
+              actions.setSubmitting(false)
+              onClose()
             }}
           >
             {({ errors, touched }) => (
               <Form>
-                <ModalBody pb={6}>
+                <ModalBody pb={6} color={"black"}>
                   <Field name="name">
                     {({ field }) => (
                       <FormControl>
                         <FormLabel>Name</FormLabel>
-                        <Input {...field} placeholder="Name" />
-                        {errors.name && touched.name && (
-                          <span>{errors.name}</span>
-                        )}
+                        <Input {...field} placeholder="Name" bgColor={"white"} />
+                        {errors.name && touched.name && <span>{errors.name}</span>}
                       </FormControl>
                     )}
                   </Field>
@@ -151,10 +145,8 @@ export function ProposeForm() {
                     {({ field }) => (
                       <FormControl mt={4}>
                         <FormLabel>Email</FormLabel>
-                        <Input {...field} placeholder="Email" />
-                        {errors.email && touched.email && (
-                          <span>{errors.email}</span>
-                        )}
+                        <Input {...field} placeholder="Email" bgColor={"white"} />
+                        {errors.email && touched.email && <span>{errors.email}</span>}
                       </FormControl>
                     )}
                   </Field>
@@ -163,18 +155,23 @@ export function ProposeForm() {
                     {({ field }) => (
                       <FormControl>
                         <FormLabel>Wallet address</FormLabel>
-                        <Input {...field} placeholder="Wallet address" />
-                        {errors.moderatorAddress &&
-                          touched.moderatorAddress && (
-                            <span>{errors.moderatorAddress}</span>
-                          )}
+                        <Input {...field} placeholder="Wallet address" bgColor={"white"} />
+                        {errors.moderatorAddress && touched.moderatorAddress && (
+                          <span>{errors.moderatorAddress}</span>
+                        )}
                       </FormControl>
                     )}
                   </Field>
                 </ModalBody>
 
                 <ModalFooter>
-                  <button type="submit">Submit</button>
+                  <Button
+                    type="submit"
+                    bgColor={"#e76f51"}
+                    _hover={{ bgColor: "#2a9d8f", border: 0, color: "white" }}
+                  >
+                    Submit
+                  </Button>
                 </ModalFooter>
               </Form>
             )}
@@ -182,5 +179,5 @@ export function ProposeForm() {
         </ModalContent>
       </Modal>
     </>
-  );
+  )
 }

@@ -43,7 +43,7 @@ export function DAOModerators() {
             templateColumns="repeat(12, 1fr)"
             gap={4}
             key={i}
-            border="1px solid #2d2d2d"
+            border="1px solid #fff"
             margin="12px"
             padding="24px"
             borderRadius="12px"
