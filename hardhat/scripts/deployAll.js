@@ -18,9 +18,6 @@ async function main() {
   console.log("GovernorContract address:", governanceToken.address)
   console.log("DAOModerators address:", governanceToken.address)
 
-  /* Calling functions on contracts */
-  await daoModerators.transferOwnership(governorContract.address)
-
   console.log("Deployed!")
 }
 

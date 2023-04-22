@@ -41,7 +41,6 @@ Running this commands will connect the local blockchain to the frontend
 
 **On another terminal on hardhat folder:**
 
-1. Run `yarn hardhat run scripts/transferOwnership.js` to integrate functionality with governance
 1. Run `yarn hardhat run scripts/createProposal.js` to create a proposal
 
 ## Deploying
