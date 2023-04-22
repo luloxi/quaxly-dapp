@@ -34,11 +34,11 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
 
 Running this commands will connect the local blockchain to the frontend
 
-**Open a terminal and:**
+**Open a terminal on hardhat folder:**
 
 1. Run `yarn hardhat node` to start a blockchain with contracts deployed
 
-**Open another terminal and:**
+**On another terminal on hardhat folder:**
 
 1. Run `yarn hardhat run scripts/transferOwnership.js` to integrate functionality with governance
 1. Run `yarn hardhat run scripts/createProposal.js` to create a proposal
