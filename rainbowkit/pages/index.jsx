@@ -19,6 +19,10 @@ const Home = () => {
         <title>Quaxly DAO</title>
         <meta content="Quadratic voting DAO" name="description" />
         <link href="favicon.ico" rel="icon" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Langar&display=swap"
+          rel="stylesheet"
+        ></link>
       </Head>
 
       <Header />

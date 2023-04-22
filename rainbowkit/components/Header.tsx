@@ -1,17 +1,8 @@
-import { ReactNode } from "react"
 import {
   Box,
   Flex,
-  Avatar,
   HStack,
-  Link,
   IconButton,
-  Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
   useDisclosure,
   useColorModeValue,
   Stack,
@@ -21,24 +12,7 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons"
 import { useAccount } from "wagmi"
 import { ProposeForm } from "../components"
 
-const Links = ["Dashboard", "Projects", "Team"]
-
-const NavLink = ({ children }: { children: ReactNode }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={"md"}
-    _hover={{
-      textDecoration: "none",
-      bg: useColorModeValue("gray.200", "gray.700"),
-    }}
-    href={"#"}
-  >
-    {children}
-  </Link>
-)
-
-export default function Simple() {
+export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { isConnected } = useAccount()
 
@@ -57,7 +31,9 @@ export default function Simple() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={"center"}>
-            <Box fontWeight={"bold"}>Quaxly DAO</Box>
+            <Box fontSize={22} fontFamily={"Langar"}>
+              Quaxly DAO
+            </Box>
             <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
               {isConnected && <ProposeForm />}
             </HStack>
