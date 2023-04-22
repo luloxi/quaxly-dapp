@@ -28,11 +28,26 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
 
 1. Open a terminal on `hardhat` folder
 2. Run `yarn` on hardhat folder to install dependencies.
-3. (optional) Run `yarn hardhat test` to run tests
-4. Change name of file **.env.example** to **.env**
-5. Fill the .env file with the correct information for the blockchain you want to deploy to
 
-_If you want to skip contracts verification, don't fill out the ETHERSCAN_API_KEY or POLYGONSCAN_API_KEY variables._
+### Test locally
+
+- Run `yarn hardhat test` to run tests
+
+**For running a local node:**
+
+Running this commands will connect the local blockchain to the frontend
+
+1. Run `yarn hardhat node` to start a blockchain with contracts deployed
+2. Run `yarn hardhat run scripts/transferOwnership.js` to integrate functionality with governance
+3. Run `yarn hardhat run scripts/createProposal.js` to create a proposal
+
+## Deploying
+
+1. Change name of file **.env.example** to **.env**
+2. Fill the .env file with the **settings for the blockchain you want** to deploy to \*
+3. Run the **deploy command for your blockchain** of choice
+
+- _If you want to skip contracts verification, don't fill out the ETHERSCAN_API_KEY or POLYGONSCAN_API_KEY variables._
 
 ### Settings for Mainnet
 
@@ -54,19 +69,11 @@ _If you want to skip contracts verification, don't fill out the ETHERSCAN_API_KE
 - (optional) POLYGONSCAN_API_KEY: [Polygonscan](https://polygonscan.com/apis)
 - Get some Mumbai MATIC here: [Mumbai Faucet](https://mumbaifaucet.com/)
 
-## Deploying
-
-### To testnets or mainnet
+### Deploy commands
 
 - Mainnet: `yarn hardhat run scripts/deployAll --network mainnet`
 - Goerli: `yarn hardhat run scripts/deployAll --network goerli`
 - Mumbai: `yarn hardhat run scripts/deployAll --network mumbai`
-
-### To local node
-
-1. Run `yarn hardhat node` to start a blockchain with contracts deployed
-2. Run `yarn hardhat run scripts/transferOwnership.js` to integrate functionality with governance
-3. Run `yarn hardhat run scripts/createProposal.js` to create a proposal
 
 # Frontend
 
