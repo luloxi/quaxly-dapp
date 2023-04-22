@@ -36,7 +36,7 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
 
 1. Open a terminal on `interface` folder
 2. Run `yarn` on hardhat folder to install dependencies.
-3. Run `yarn dev`
+3. Run `yarn dev` to start a local hosted interface
 4. Open [http://localhost:3000](http://localhost:3000) in your web browser.
 
 # Smart contracts
@@ -95,7 +95,7 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
 
 1. Open a terminal on `interface` folder
 2. Run `yarn` on hardhat folder to install dependencies.
-3. Run `yarn dev`
+3. Run `yarn dev` to start a local hosted interface
 4. Open [http://localhost:3000](http://localhost:3000) in your web browser.
 
 ## Connecting to different chains
