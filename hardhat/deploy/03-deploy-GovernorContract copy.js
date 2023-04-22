@@ -18,7 +18,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   const { deployer } = await getNamedAccounts()
 
   const governanceToken = await get("GovernanceToken")
-  const daoModerators = await get("DAOModerators")
+  // const daoModerators = await get("DAOModerators")
 
   arguments = [
     governanceToken.address,
