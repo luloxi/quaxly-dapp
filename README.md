@@ -14,12 +14,12 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
   - [Testing locally](#testing-locally)
   - [Deploying](#deploying)
 - [Frontend](#frontend)
-  - [Setting up Rainbowkit](#setting-up-interface)
+  - [Setting up interface](#setting-up-interface)
   - [Deploying to Fleek]()
 - [File locations](#file-locations)
   - [/ (Root folder)](#root-folder)
   - [/hardhat (Smart contracts)](#hardhat-smart-contracts)
-  - [/interface (Frontend)](#rainbowkit-frontend-folder)
+  - [/interface (Frontend)](#interface-frontend)
   - [/express (Backend)](#)
 - [Troubleshooting](#troubleshooting)
 
@@ -89,7 +89,7 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
 
 - Build command: `yarn && yarn build && yarn export`
 - Publish directory: `out`
-- Base directory: `rainbowkit`
+- Base directory: `interface`
 
 # File locations
 
@@ -98,7 +98,7 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
 - **/concept**: Reference files for styling.
 - **/express**: Backend files. Made using Express.
 - **/hardhat**: Smart contracts files. Made using Hardhat
-- **/rainbowkit**: Frontend files. Made using Next.js + Rainbowkit + Wagmi + ChakraUI
+- **/interface**: Frontend files. Made using Next.js + Wagmi + ChakraUI
 
 ## /hardhat (Smart contracts)
 
@@ -108,7 +108,7 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
 - **scripts/**: Script to deployAll, and script to Propose as admin.
 - **test/**: Unit testing for Quaxly contracts
 
-## /rainbowkit (Frontend)
+## /interface (Frontend)
 
 - **/components**: Custom components for Quaxly dApp.
 - **/constants**: ABI and Contract addresses for deployed contracts
