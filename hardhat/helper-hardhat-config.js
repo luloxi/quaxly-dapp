@@ -1,3 +1,5 @@
+/* Variables for updating rainbowkit frontend */
+
 const developmentChains = ["hardhat", "localhost"]
 const daoModeratorsAddress = "../rainbowkit/constants/daoModeratorsAddress.json"
 const daoModeratorsABI = "../rainbowkit/constants/daoModeratorsABI.json"
@@ -6,14 +8,29 @@ const governanceTokenABI = "../rainbowkit/constants/governanceTokenABI.json"
 const governorContractAddress = "../rainbowkit/constants/governorContractAddress.json"
 const governorContractABI = "../rainbowkit/constants/governorContractABI.json"
 
+/* Variables for updating interface frontend */
+
+const DAOModeratorsAddress = "../interface/constants/daoModeratorsAddress.json"
+const DAOModeratorsABI = "../interface/constants/DAOModeratorsABI.json"
+const GovernanceTokenAddress = "../interface/constants/governanceTokenAddress.json"
+const GovernanceTokenABI = "../interface/constants/GovernanceTokenABI.json"
+const GovernorContractAddress = "../interface/constants/governorContractAddress.json"
+const GovernorContractABI = "../interface/constants/GovernorContractABI.json"
+
 module.exports = {
+  developmentChains,
   daoModeratorsAddress,
   daoModeratorsABI,
   governanceTokenAddress,
   governanceTokenABI,
   governorContractAddress,
   governorContractABI,
-  developmentChains,
+  DAOModeratorsAddress,
+  DAOModeratorsABI,
+  GovernanceTokenAddress,
+  GovernanceTokenABI,
+  GovernorContractAddress,
+  GovernorContractABI,
   DAO_MODERATORS: {
     NAME: "Lulox",
     EMAIL: "lulox.eth@protonmail.com",
