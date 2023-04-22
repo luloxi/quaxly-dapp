@@ -7,6 +7,7 @@ import {
   ModalContent,
   ModalHeader,
   ModalFooter,
+  Button,
   ModalBody,
   ModalCloseButton,
   useDisclosure,
@@ -91,9 +92,13 @@ export function ProposeForm() {
 
   return (
     <>
-      <button style={{ margin: "0 16px" }} onClick={onOpen}>
+      <Button
+        bgColor={"#2a9d8f"}
+        _hover={{ bgColor: "#e9c46a", color: "#000", border: 0 }}
+        onClick={onOpen}
+      >
         Propose a new moderator
-      </button>
+      </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay bg="#211f24" backdropFilter="auto" backdropInvert="80%" backdropBlur="2px" />
         <ModalContent bg="#211f24" border="white 1px solid">

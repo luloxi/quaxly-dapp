@@ -115,7 +115,7 @@ _If you want to skip contracts verification, don't fill out the ETHERSCAN_API_KE
 
 ## /express (Backend)
 
-- **/index.js**: File with setup and functions for REST API
+- **index.js**: File with setup and functions for REST API
 
 # Troubleshooting
 

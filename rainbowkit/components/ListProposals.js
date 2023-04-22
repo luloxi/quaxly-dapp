@@ -15,7 +15,6 @@ export function ListProposals({ onlyActive, onlySuccessful, availableVoting }) {
 
   /* This could be a separate component */
   const { chain } = useNetwork()
-  // console.log(chain)
 
   // console.log(chain);
   // console.log("Chain.id:", chain.id);
