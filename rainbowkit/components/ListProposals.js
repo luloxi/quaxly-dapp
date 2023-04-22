@@ -15,6 +15,7 @@ export function ListProposals({ onlyActive, onlySuccessful, availableVoting }) {
 
   /* This could be a separate component */
   const { chain } = useNetwork()
+  // console.log(chain)
 
   // console.log(chain);
   // console.log("Chain.id:", chain.id);
@@ -61,13 +62,19 @@ export function ListProposals({ onlyActive, onlySuccessful, availableVoting }) {
       .then((logs) => {
         setIsLoading(false)
         let proposals = logs.filter((log) => {
+          // What does this line do?
           const deadline = governorContract.interface.parseLog(log).args[7].toNumber()
+          // If onlyActive set to true, only show the ones where deadline is greater than blockNumber
+          // Else, show everything
           return onlyActive ? deadline >= blockNumber : true
         })
 
+        // Set proposals to a map
         proposals = proposals.map((log) => {
+          // So it's getting all this data
           const [proposalId, , , , , calldatas, snapshot, deadline, description] =
             governorContract.interface.parseLog(log).args
+          // What is parseLog? Maybe wagmi documentation has the answer
 
           return {
             calldatas,
