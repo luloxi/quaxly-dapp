@@ -16,4 +16,4 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   console.log("Done!")
 }
 
-module.exports.tags = ["all", "transferownership"]
+module.exports.tags = ["all", "mining"]

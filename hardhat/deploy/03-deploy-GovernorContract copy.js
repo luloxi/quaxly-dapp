@@ -56,4 +56,4 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   log("-------------------------------------")
 }
 
-module.exports.tags = ["all", "governorcontract"]
+module.exports.tags = ["all", "governorcontract", "anarchy"]

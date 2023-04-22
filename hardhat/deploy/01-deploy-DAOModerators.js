@@ -32,4 +32,4 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   log("-------------------------------------")
 }
 
-module.exports.tags = ["all", "daomoderators"]
+module.exports.tags = ["all", "daomoderators", "anarchy"]
