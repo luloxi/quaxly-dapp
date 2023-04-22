@@ -100,8 +100,8 @@ export function ProposeForm() {
         Propose a new moderator
       </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay bg="#211f24" backdropFilter="auto" backdropInvert="80%" backdropBlur="2px" />
-        <ModalContent bg="#211f24" border="white 1px solid">
+        <ModalOverlay bg="#333" backdropFilter="auto" backdropInvert="80%" backdropBlur="2px" />
+        <ModalContent bg="#e9c46a" color={"black"}>
           <ModalHeader>Propose a new moderator for the DAO</ModalHeader>
           <ModalCloseButton />
           <Formik
@@ -132,7 +132,7 @@ export function ProposeForm() {
                     {({ field }) => (
                       <FormControl>
                         <FormLabel>Name</FormLabel>
-                        <Input {...field} placeholder="Name" />
+                        <Input {...field} placeholder="Name" bgColor={"white"} />
                         {errors.name && touched.name && <span>{errors.name}</span>}
                       </FormControl>
                     )}
@@ -142,7 +142,7 @@ export function ProposeForm() {
                     {({ field }) => (
                       <FormControl mt={4}>
                         <FormLabel>Email</FormLabel>
-                        <Input {...field} placeholder="Email" />
+                        <Input {...field} placeholder="Email" bgColor={"white"} />
                         {errors.email && touched.email && <span>{errors.email}</span>}
                       </FormControl>
                     )}
@@ -152,7 +152,7 @@ export function ProposeForm() {
                     {({ field }) => (
                       <FormControl>
                         <FormLabel>Wallet address</FormLabel>
-                        <Input {...field} placeholder="Wallet address" />
+                        <Input {...field} placeholder="Wallet address" bgColor={"white"} />
                         {errors.moderatorAddress && touched.moderatorAddress && (
                           <span>{errors.moderatorAddress}</span>
                         )}
@@ -162,7 +162,13 @@ export function ProposeForm() {
                 </ModalBody>
 
                 <ModalFooter>
-                  <button type="submit">Submit</button>
+                  <Button
+                    type="submit"
+                    bgColor={"#e76f51"}
+                    _hover={{ bgColor: "#2a9d8f", border: 0, color: "white" }}
+                  >
+                    Submit
+                  </Button>
                 </ModalFooter>
               </Form>
             )}
