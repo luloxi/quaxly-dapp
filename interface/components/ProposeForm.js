@@ -22,6 +22,7 @@ import {
   governorContractAddress,
   DAOModeratorsABI,
   daoModeratorsAddress,
+  CurrentChain, ChainList
 } from "../constants"
 
 const ProposeSchema = Yup.object().shape({
@@ -38,9 +39,10 @@ const getCalldata = (name, email, moderatorAddress) => {
 }
 
 export function ProposeForm() {
-  /* Replace with a dynamic chain component */
-  const GovernorContractAddress = governorContractAddress["31337"][0]
-  const DAOModeratorsAddress = daoModeratorsAddress["31337"][0]
+  /* Replace with an automatic solution */
+  let currentChain = ChainList[CurrentChain["default"]]
+  const GovernorContractAddress = governorContractAddress[currentChain][0]
+  const DAOModeratorsAddress = daoModeratorsAddress[currentChain][0]
 
   const { isOpen, onOpen, onClose } = useDisclosure()
   const toast = useToast()

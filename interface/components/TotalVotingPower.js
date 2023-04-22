@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useAccount, useContractRead } from "wagmi";
 import { LockIcon } from "@chakra-ui/icons";
-import { GovernanceTokenABI, governanceTokenAddress } from "../constants";
+import { GovernanceTokenABI, governanceTokenAddress, CurrentChain, ChainList } from "../constants";
 
 export function TotalVotingPower() {
-  /* Replace with a dynamic chain component */
-  const GovernanceTokenAddress = governanceTokenAddress["31337"][0];
+  /* Replace with an automatic solution */
+  let currentChain = ChainList[CurrentChain["default"]]
+  const GovernanceTokenAddress = governanceTokenAddress[currentChain][0];
 
   const { address } = useAccount();
   const [isLoading, setIsLoading] = useState(true);

@@ -1,11 +1,12 @@
 import React from "react"
 import { useState } from "react"
 import { useAccount, useContractRead } from "wagmi"
-import { GovernorContractABI, governorContractAddress } from "../constants"
+import { GovernorContractABI, governorContractAddress, CurrentChain, ChainList } from "../constants"
 
 export function HasVoted({ children, proposalId }) {
-  /* Replace with a dynamic chain component */
-  const GovernorContractAddress = governorContractAddress["31337"][0]
+  /* Replace with an automatic solution */
+  let currentChain = ChainList[CurrentChain["default"]]
+  const GovernorContractAddress = governorContractAddress[currentChain][0]
 
   const { address } = useAccount()
   const [isLoading, setIsLoading] = useState(true)

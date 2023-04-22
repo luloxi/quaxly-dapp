@@ -1,11 +1,12 @@
 import { useState } from "react"
 import { useContractRead } from "wagmi"
-import { DAOModeratorsABI, daoModeratorsAddress } from "../constants"
+import { DAOModeratorsABI, daoModeratorsAddress, CurrentChain, ChainList } from "../constants"
 import { Heading, Grid, GridItem } from "@chakra-ui/react"
 
 export function DAOModerators() {
-  /* Replace with a dynamic chain component */
-  const DAOModeratorsAddress = daoModeratorsAddress["31337"][0]
+  /* Replace with an automatic solution */
+  let currentChain = ChainList[CurrentChain["default"]]
+  const DAOModeratorsAddress = daoModeratorsAddress[currentChain][0]
 
   const [isLoading, setIsLoading] = useState(true)
   const [data, setData] = useState([])

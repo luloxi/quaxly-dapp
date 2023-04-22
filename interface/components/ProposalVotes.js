@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useContractRead } from "wagmi";
 import { CheckIcon, CloseIcon, MinusIcon } from "@chakra-ui/icons";
-import { GovernorContractABI, governorContractAddress } from "../constants";
+import { GovernorContractABI, governorContractAddress, CurrentChain, ChainList } from "../constants";
 
 export function ProposalVotes({ proposalId }) {
-  /* Replace with a dynamic chain component */
-  const GovernorContractAddress = governorContractAddress["31337"][0];
+  /* Replace with an automatic solution */
+  let currentChain = ChainList[CurrentChain["default"]]
+  const GovernorContractAddress = governorContractAddress[currentChain][0];
 
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");

@@ -26,12 +26,13 @@ import * as Yup from "yup"
 import { useAccount, useContractRead, useContractWrite } from "wagmi"
 import { supportEnum, proposalStateEnum } from "../shared/constants"
 import { ProposalBlockTimestamp, ProposalVotes, TotalVotingPower } from "./index"
-import { GovernorContractABI, governorContractAddress, daoModeratorsAddress } from "../constants"
+import { GovernorContractABI, governorContractAddress, daoModeratorsAddress, CurrentChain, ChainList } from "../constants"
 
 export function Proposal({ availableVoting = 0, hasVoted = false, proposal, onlySuccessful }) {
-  /* Replace with a dynamic chain component */
-  const GovernorContractAddress = governorContractAddress["31337"][0]
-  const DAOModeratorsAddress = daoModeratorsAddress["31337"][0]
+  /* Replace with an automatic solution */
+  let currentChain = ChainList[CurrentChain["default"]]
+  const GovernorContractAddress = governorContractAddress[currentChain][0]
+  const DAOModeratorsAddress = daoModeratorsAddress[currentChain][0]
 
   const { isConnected } = useAccount()
   const [justVoted, setJustVoted] = useState(false)

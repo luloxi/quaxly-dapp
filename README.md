@@ -80,7 +80,14 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
 1. Open a terminal on `interface` folder
 2. Run `yarn` on hardhat folder to install dependencies.
 3. Run `yarn dev`
-4. Open [http://localhost:3000](http://localhost:3000) in your web browser
+4. Open [http://localhost:3000](http://localhost:3000) in your web browser.
+
+## Connecting frontend to different chains
+
+Change `/constants/CurrentChain.json` default value to your desired chain name.
+Chain names available on `/constants/ChainList.json`
+
+Default value is `hardhat` for local testing
 
 ## Deploying to Fleek
 
