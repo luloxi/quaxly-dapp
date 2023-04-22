@@ -24,6 +24,21 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
   - [/express (Backend)](#)
 - [Troubleshooting](#troubleshooting)
 
+# Quick setup
+
+**Smart contracts**
+
+1. Open a terminal on `hardhat` folder
+2. Run `yarn` on hardhat folder to install dependencies.
+3. Run `yarn hardhat node` to start a local blockchain that interacts with the frontend
+
+**Interface**
+
+1. Open a terminal on `interface` folder
+2. Run `yarn` on hardhat folder to install dependencies.
+3. Run `yarn dev`
+4. Open [http://localhost:3000](http://localhost:3000) in your web browser.
+
 # Smart contracts
 
 ## Setting up Hardhat
