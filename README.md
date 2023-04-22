@@ -28,18 +28,20 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
 
 1. Open a terminal on `hardhat` folder
 2. Run `yarn` on hardhat folder to install dependencies.
+3. (optional) Run `yarn hardhat test` to run tests
 
 ### Test locally
 
-- Run `yarn hardhat test` to run tests
-
-**For running a local node:**
-
 Running this commands will connect the local blockchain to the frontend
 
+**Open a terminal and:**
+
 1. Run `yarn hardhat node` to start a blockchain with contracts deployed
-2. Run `yarn hardhat run scripts/transferOwnership.js` to integrate functionality with governance
-3. Run `yarn hardhat run scripts/createProposal.js` to create a proposal
+
+**Open another terminal and:**
+
+1. Run `yarn hardhat run scripts/transferOwnership.js` to integrate functionality with governance
+1. Run `yarn hardhat run scripts/createProposal.js` to create a proposal
 
 ## Deploying
 
