@@ -15,6 +15,7 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
   - [Deploying](#deploying)
 - [Frontend](#frontend)
   - [Setting up interface](#setting-up-interface)
+  - [Connecting to different chains](#connecting-to-different-chains)
   - [Deploying to Fleek]()
 - [File locations](#file-locations)
   - [/ (Root folder)](#root-folder)
@@ -82,12 +83,12 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
 3. Run `yarn dev`
 4. Open [http://localhost:3000](http://localhost:3000) in your web browser.
 
-## Connecting frontend to different chains
+## Connecting to different chains
 
 Change `/constants/CurrentChain.json` default value to your desired chain name.
-Chain names available on `/constants/ChainList.json`
 
-Default value is `hardhat` for local testing
+- Available chain names are `hardhat` `mumbai` `goerli` and `mainnet`
+- Default value `hardhat` is for local testing
 
 ## Deploying to Fleek
 
