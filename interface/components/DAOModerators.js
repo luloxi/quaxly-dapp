@@ -3,7 +3,7 @@ import { useContractRead } from "wagmi"
 import { DAOModeratorsABI, daoModeratorsAddress, CurrentChain, ChainList } from "../constants"
 import { Heading, Grid, GridItem } from "@chakra-ui/react"
 
-export function DAOModerators() {
+export default function DAOModerators() {
   /* Replace with an automatic solution */
   let currentChain = ChainList[CurrentChain["default"]]
   const DAOModeratorsAddress = daoModeratorsAddress[currentChain][0]

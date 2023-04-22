@@ -3,7 +3,7 @@ import { useAccount } from "wagmi"
 import { Connect, ProposeForm } from "../components"
 import { Heading, Grid, GridItem } from "@chakra-ui/react"
 
-export function Header() {
+export default function Header() {
   const { isConnected } = useAccount()
 
   return (

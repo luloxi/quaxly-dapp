@@ -22,7 +22,8 @@ import {
   governorContractAddress,
   DAOModeratorsABI,
   daoModeratorsAddress,
-  CurrentChain, ChainList
+  CurrentChain,
+  ChainList,
 } from "../constants"
 
 const ProposeSchema = Yup.object().shape({
@@ -38,7 +39,7 @@ const getCalldata = (name, email, moderatorAddress) => {
   return _interface.encodeFunctionData("setNewModerator", [name, email, moderatorAddress])
 }
 
-export function ProposeForm() {
+export default function ProposeForm() {
   /* Replace with an automatic solution */
   let currentChain = ChainList[CurrentChain["default"]]
   const GovernorContractAddress = governorContractAddress[currentChain][0]

@@ -1,17 +1,17 @@
-import { useState } from "react";
-import { useAccount, useContractRead } from "wagmi";
-import { LockIcon } from "@chakra-ui/icons";
-import { GovernanceTokenABI, governanceTokenAddress, CurrentChain, ChainList } from "../constants";
+import { useState } from "react"
+import { useAccount, useContractRead } from "wagmi"
+import { LockIcon } from "@chakra-ui/icons"
+import { GovernanceTokenABI, governanceTokenAddress, CurrentChain, ChainList } from "../constants"
 
-export function TotalVotingPower() {
+export default function TotalVotingPower() {
   /* Replace with an automatic solution */
   let currentChain = ChainList[CurrentChain["default"]]
-  const GovernanceTokenAddress = governanceTokenAddress[currentChain][0];
+  const GovernanceTokenAddress = governanceTokenAddress[currentChain][0]
 
-  const { address } = useAccount();
-  const [isLoading, setIsLoading] = useState(true);
-  const [totalVoting, setTotalVoting] = useState(0);
-  const [error, setError] = useState("");
+  const { address } = useAccount()
+  const [isLoading, setIsLoading] = useState(true)
+  const [totalVoting, setTotalVoting] = useState(0)
+  const [error, setError] = useState("")
 
   useContractRead({
     addressOrName: GovernanceTokenAddress,
@@ -19,15 +19,15 @@ export function TotalVotingPower() {
     functionName: "balanceOf",
     args: address,
     onSuccess(data) {
-      setIsLoading(false);
-      setTotalVoting(data.toNumber());
+      setIsLoading(false)
+      setTotalVoting(data.toNumber())
     },
     onError(error) {
-      setIsLoading(false);
-      setError(error);
+      setIsLoading(false)
+      setError(error)
     },
     watch: true,
-  });
+  })
 
   return (
     <>
@@ -41,5 +41,5 @@ export function TotalVotingPower() {
         <LockIcon /> <b>Total voting power:</b> {totalVoting} votes
       </p>
     </>
-  );
+  )
 }

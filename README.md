@@ -110,6 +110,14 @@ Change `/constants/CurrentChain.json` default value to your desired chain name.
 - Publish directory: `out`
 - Base directory: `interface`
 
+# 🚧 Backend 🚧 (under construction)
+
+## Setting up express
+
+1. Open a terminal on `express` folder
+2. Run `yarn` to install dependencies.
+3. Run `node index.js` to start the backend
+
 # File locations
 
 ## / (Root folder)

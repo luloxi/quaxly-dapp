@@ -15,7 +15,10 @@ const GovernorContractAddress = governorContractAddress[currentChain][0];
 // To be updated with an Ethereum node URL for production
 const provider = ethers.getDefaultProvider("http://localhost:8545");
 
-async function fetchProposals() {
+// This should be an argument when calling the Express server
+const onlyActive = true;
+
+async function fetchProposals(onlyActive) {
   try {
     const governorContract = new ethers.Contract(
       GovernorContractAddress,
@@ -26,7 +29,6 @@ async function fetchProposals() {
     const votingPeriod = await governorContract.votingPeriod();
     console.log("Tu abuela:", votingPeriod.toString());
     const blockNumber = await provider.getBlockNumber();
-    const onlyActive = true; // Update with your logic for `onlyActive`
 
     let eventFilter = governorContract.filters.ProposalCreated();
     const blockMinusVotingPeriod = blockNumber - votingPeriod.toString();
@@ -43,14 +45,24 @@ async function fetchProposals() {
     });
 
     let proposals = logs.filter((log) => {
-      return true;
-      //   const deadline = governorContract.interface
-      //     .parseLog(log)
-      //     .args[7].toNumber();
-      // If onlyActive, only show proposals where deadline is greater than blockNumber
+      const deadline = governorContract.interface
+        .parseLog(log)
+        .args[7].toNumber();
+      // If onlyActive is true, only show proposals where deadline is greater than blockNumber
       // Else, show everything
-      //   return onlyActive ? deadline >= blockNumber : true;
+      return onlyActive ? deadline >= blockNumber : true;
     });
+
+    // let proposals = logs.filter((log) => {
+
+    //   const deadline = governorContract.interface
+    //     .parseLog(log)
+    //     .args[7].toNumber();
+    // If onlyActive, only show proposals where deadline is greater than blockNumber
+    // Else, show everything
+    //   return onlyActive ? deadline >= blockNumber : true;
+    //   return true;
+    // });
 
     proposals = proposals.map((log) => {
       console.log(governorContract.interface.parseLog(log));
@@ -71,10 +83,10 @@ async function fetchProposals() {
   }
 }
 
-// Example Express route that calls the fetchProposals() function
 app.get("/proposals", async (req, res) => {
   try {
-    const proposals = await fetchProposals();
+    const onlyActive = req.query.onlyActive === "true"; // Get the onlyActive flag from query parameter
+    const proposals = await fetchProposals(onlyActive);
     res.json(proposals);
   } catch (error) {
     res.status(500).json({ error: error.message });
