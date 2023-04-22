@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useProvider, useBlockNumber } from "wagmi"
 import { TimeIcon } from "@chakra-ui/icons"
 
-export default function ProposalBlockTimestamp({ blockTimestamp, deadline }) {
+export function ProposalBlockTimestamp({ blockTimestamp, deadline }) {
   const _blockTimestamp = blockTimestamp._isBigNumber ? blockTimestamp.toNumber() : blockTimestamp
   const provider = useProvider()
   const { data: blockNumber } = useBlockNumber({ watch: true })

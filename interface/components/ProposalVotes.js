@@ -3,7 +3,7 @@ import { useContractRead } from "wagmi"
 import { CheckIcon, CloseIcon, MinusIcon } from "@chakra-ui/icons"
 import { GovernorContractABI, governorContractAddress, CurrentChain, ChainList } from "../constants"
 
-export default function ProposalVotes({ proposalId }) {
+export function ProposalVotes({ proposalId }) {
   /* Replace with an automatic solution */
   let currentChain = ChainList[CurrentChain["default"]]
   const GovernorContractAddress = governorContractAddress[currentChain][0]

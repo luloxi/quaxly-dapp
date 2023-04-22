@@ -4,7 +4,7 @@ import { useAccount, useBlockNumber, useContractRead, useProvider } from "wagmi"
 import { HasVoted, Proposal } from "./index"
 import { GovernorContractABI, governorContractAddress, CurrentChain, ChainList } from "../constants"
 
-export default function ListProposals({ onlyActive, onlySuccessful, availableVoting }) {
+export function ListProposals({ onlyActive, onlySuccessful, availableVoting }) {
   /* Replace with an automatic solution */
   let currentChain = ChainList[CurrentChain["default"]]
   const GovernorContractAddress = governorContractAddress[currentChain][0]

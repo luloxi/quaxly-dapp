@@ -34,12 +34,7 @@ import {
   ChainList,
 } from "../constants"
 
-export default function Proposal({
-  availableVoting = 0,
-  hasVoted = false,
-  proposal,
-  onlySuccessful,
-}) {
+export function Proposal({ availableVoting = 0, hasVoted = false, proposal, onlySuccessful }) {
   /* Replace with an automatic solution */
   let currentChain = ChainList[CurrentChain["default"]]
   const GovernorContractAddress = governorContractAddress[currentChain][0]

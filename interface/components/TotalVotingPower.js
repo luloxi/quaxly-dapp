@@ -3,7 +3,7 @@ import { useAccount, useContractRead } from "wagmi"
 import { LockIcon } from "@chakra-ui/icons"
 import { GovernanceTokenABI, governanceTokenAddress, CurrentChain, ChainList } from "../constants"
 
-export default function TotalVotingPower() {
+export function TotalVotingPower() {
   /* Replace with an automatic solution */
   let currentChain = ChainList[CurrentChain["default"]]
   const GovernanceTokenAddress = governanceTokenAddress[currentChain][0]

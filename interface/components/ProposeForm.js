@@ -39,7 +39,7 @@ const getCalldata = (name, email, moderatorAddress) => {
   return _interface.encodeFunctionData("setNewModerator", [name, email, moderatorAddress])
 }
 
-export default function ProposeForm() {
+export function ProposeForm() {
   /* Replace with an automatic solution */
   let currentChain = ChainList[CurrentChain["default"]]
   const GovernorContractAddress = governorContractAddress[currentChain][0]

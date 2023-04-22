@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useAccount, useContractRead } from "wagmi"
 import { GovernorContractABI, governorContractAddress, CurrentChain, ChainList } from "../constants"
 
-export default function HasVoted({ children, proposalId }) {
+export function HasVoted({ children, proposalId }) {
   /* Replace with an automatic solution */
   let currentChain = ChainList[CurrentChain["default"]]
   const GovernorContractAddress = governorContractAddress[currentChain][0]
