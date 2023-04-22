@@ -1,38 +1,34 @@
 const express = require("express");
-const Web3 = require("web3");
-const abi = require("./RealEstate.json");
-
 const app = express();
-const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+const { ethers } = require("ethers");
+const {
+  GovernorContractABI,
+  governorContractAddress,
+  CurrentChain,
+  ChainList,
+} = require("../interface/constants");
 
-const contract = new web3.eth.Contract(abi, "0xContractAddress");
+/* Replace with an automatic solution */
+let currentChain = ChainList[CurrentChain["default"]];
+const GovernorContractAddress = governorContractAddress[currentChain][0];
+const provider = ethers.getDefaultProvider("http://localhost:8545");
 
-app.get("/properties", (req, res) => {
-  contract.methods.getProperties().call((err, properties) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.json(properties);
-    }
-  });
+const contract = new ethers.Contract(
+  GovernorContractAddress,
+  GovernorContractABI,
+  provider
+);
+
+app.get("/proposalThreshold", async (req, res) => {
+  try {
+    const proposalThreshold = await contract.proposalThreshold();
+    // Convert BigInt to string before sending as JSON
+    res.json(proposalThreshold.toString());
+  } catch (err) {
+    res.status(500).send(err);
+  }
 });
 
-// app.post("/buy-property", (req, res) => {
-//   const { propertyId } = req.body;
-//   contract.methods
-//     .buyProperty(propertyId)
-//     .send(
-//       { from: "0xUserAddress", value: "1000000000000000000" },
-//       (err, transactionHash) => {
-//         if (err) {
-//           res.status(500).send(err);
-//         } else {
-//           res.json({ transactionHash });
-//         }
-//       }
-//     );
-// });
-
-app.listen(3000, () => {
-  console.log("Server listening on http://localhost:3000");
+app.listen(3001, () => {
+  console.log("Server listening on http://localhost:3001");
 });
