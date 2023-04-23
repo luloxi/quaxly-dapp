@@ -6,9 +6,8 @@ Evolved into [quaxwell-dapp](https://github.com/luloxi/quaxwell-dapp), this repo
 
 - [DApp conditions](https://lulox.notion.site/Quaxly-dApp-conditions-645e66fdf6744161ae5ff97e854c175e) to be met
 - [Ongoing changes](https://lulox.notion.site/Ongoing-changes-91a60bc9f6c449e6a1f163a380d575b1) next to be implemented
-
-Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadratic-voting-dao)
-Name is from [here](https://pokemondb.net/pokedex/quaxly)
+- Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadratic-voting-dao)
+- Name is from [here](https://pokemondb.net/pokedex/quaxly)
 
 # Index
 
