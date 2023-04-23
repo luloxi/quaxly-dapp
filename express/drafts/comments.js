@@ -6,7 +6,7 @@ const {
   governorContractAddress,
   CurrentChain,
   ChainList,
-} = require("../interface/constants");
+} = require("../../interface/constants");
 
 /* Replace with an automatic solution */
 let currentChain = ChainList[CurrentChain["default"]];

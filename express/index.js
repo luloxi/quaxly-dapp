@@ -1,6 +1,6 @@
+const ethers = require("ethers");
 const express = require("express");
 const app = express();
-const { ethers } = require("ethers");
 const {
   GovernorContractABI,
   governorContractAddress,
@@ -15,80 +15,38 @@ const provider = ethers.getDefaultProvider("http://localhost:8545");
 let currentChain = ChainList[CurrentChain["default"]];
 const GovernorContractAddress = governorContractAddress[currentChain][0];
 
-async function fetchProposals(/* onlyActive */) {
-  // This should be an argument when calling the Express server
-  const onlyActive = true;
+// Create contract instance
+const contract = new ethers.Contract(
+  GovernorContractAddress,
+  GovernorContractABI,
+  provider
+);
+
+// Route for getting proposals
+app.get("/proposals", async (req, res) => {
   try {
-    const governorContract = new ethers.Contract(
-      GovernorContractAddress,
-      GovernorContractABI,
-      provider
-    );
+    // Filter events for ProposalCreated
+    const filter = contract.filters.ProposalCreated();
+    const events = await contract.queryFilter(filter);
 
-    // This could be read from the smart contract to be more dynamic
-    const blockNumber = await provider.getBlockNumber();
-    // const votingPeriod = 100;
-    // const blockMinusVotingPeriod = blockNumber - votingPeriod;
-
-    let eventFilter = governorContract.filters.ProposalCreated();
-
-    // Make dynamic, can't read more than 3 at a time
-    const logs = await provider.getLogs({
-      ...eventFilter,
-      fromBlock: 0,
-      toBlock: 2,
-      // fromBlock: onlyActive && votingPeriod !== 0
-      //   ? blockMinusVotingPeriod > 0
-      //     ? blockMinusVotingPeriod
-      //     : ethers.BigNumber.from(1) // Use 0 as the block number
-      //   : ethers.BigNumber.from(1), // Use 0 as the block number
-      // toBlock: blockNumber, // Use the current block number as the toBlock value
-    });
-
-    // It doesn't get this far
-    let proposals = logs.filter((log) => {
-      const parsedLog = governorContract.interface.parseLog(log);
-      console.log("Parsed Log Args:", parsedLog);
-      if (!parsedLog || !parsedLog.args) return false;
-      const deadline = parsedLog.args[7].toNumber();
-      return onlyActive ? deadline >= blockNumber : true;
-    });
-
-    // console.log(proposals);
-
-    proposals = proposals.map((log) => {
-      const parsedLog = governorContract.interface.parseLog(log);
-      if (!parsedLog || !parsedLog.args) return null;
-      const [proposalId, , , , , calldatas, snapshot, deadline, description] =
-        parsedLog.args;
+    // Extract proposals from events
+    const proposals = events.map((event) => {
+      // Convert BigInt values to strings
       return {
-        calldatas,
-        deadline,
-        description,
-        proposalId,
-        snapshot,
+        proposalId: event.args.proposalId.toString(),
+        proposer: event.args.proposer.toString(),
+        // Add other properties and convert BigInt values to strings if needed
       };
     });
 
-    console.log(proposals);
-
-    return proposals.filter((proposal) => proposal !== null);
-  } catch (error) {
-    throw error;
-  }
-}
-
-app.get("/proposals", async (req, res) => {
-  try {
-    // const onlyActive = req.query.onlyActive === "true"; // Get the onlyActive flag from query parameter
-    const proposals = await fetchProposals(/* onlyActive */);
     res.json(proposals);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error(error);
+    res.status(500).json({ error: "Failed to get proposals" });
   }
 });
 
-// Start the Express app and listen for incoming requests
+// Start Express server
 app.listen(3001, () => {
-  console.log("Server started on http://localhost:3001");
+  console.log("Server is running on http://localhost:3001");
 });
