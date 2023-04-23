@@ -29,17 +29,18 @@ app.get("/proposals", async (req, res) => {
     const filter = contract.filters.ProposalCreated();
     const events = await contract.queryFilter(filter);
 
+    // Show each proposal event
     console.log(events);
+
     // Extract proposals from events
     const proposals = events.map((event) => {
       // Convert BigInt values to strings
       return {
-        proposalId: event.args.proposalId.toString(),
-        proposer: event.args.proposer.toString(),
+        calldatas: event.args[event.args.length - 3].toString(),
+        deadline: event.args[event.args.length - 2].toString(),
         description: event.args[event.args.length - 1].toString(),
-        // deadline: event.args.deadline.toString(),
-        // calldatas,
-        //     snapshot,
+        proposalId: event.args.proposalId.toString(),
+        snapshot: event.args[event.args.length - 4].toString(),
         // Add other properties and convert BigInt values to strings if needed
       };
     });
@@ -52,6 +53,6 @@ app.get("/proposals", async (req, res) => {
 });
 
 // Start Express server
-app.listen(3001, () => {
-  console.log("Server is running on http://localhost:3001");
+app.listen(3003, () => {
+  console.log("Server is running on http://localhost:3000");
 });
