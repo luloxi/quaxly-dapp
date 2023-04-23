@@ -124,7 +124,7 @@ Change `/constants/CurrentChain.json` default value to your desired chain name.
 ## Testing backend
 
 1. Open a terminal on `backend` folder
-2. Run `curl http://localhost:3001/proposals` to see **index.js output**
+2. Run [http://localhost:3001/proposals](http://localhost:3001/proposals) to see **index.js output**
 
 # File locations
 
