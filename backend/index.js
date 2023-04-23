@@ -29,12 +29,17 @@ app.get("/proposals", async (req, res) => {
     const filter = contract.filters.ProposalCreated();
     const events = await contract.queryFilter(filter);
 
+    console.log(events);
     // Extract proposals from events
     const proposals = events.map((event) => {
       // Convert BigInt values to strings
       return {
         proposalId: event.args.proposalId.toString(),
         proposer: event.args.proposer.toString(),
+        description: event.args[event.args.length - 1].toString(),
+        // deadline: event.args.deadline.toString(),
+        // calldatas,
+        //     snapshot,
         // Add other properties and convert BigInt values to strings if needed
       };
     });

@@ -16,8 +16,10 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
 - [Frontend](#frontend)
   - [Setting up interface](#setting-up-interface)
   - [Connecting to different chains](#connecting-to-different-chains)
-  - [Deploying to Fleek]()
+  - [Deploying to Fleek](#deploying-to-fleek)
 - [Backend](#🚧-backend-🚧-under-construction)
+  - [Setting up backend](#setting-up-backend)
+  - [Testing backend](#testing-backend)
 - [File locations](#file-locations)
 - [Troubleshooting](#troubleshooting)
 
@@ -113,18 +115,23 @@ Change `/constants/CurrentChain.json` default value to your desired chain name.
 
 # 🚧 Backend 🚧 (under construction)
 
-## Setting up express
+## Setting up backend
 
-1. Open a terminal on `express` folder
+1. Open a terminal on `backend` folder
 2. Run `yarn` to install dependencies.
 3. Run `node index.js` to start the backend
+
+## Testing backend
+
+1. Open a terminal on `backend` folder
+2. Run `curl http://localhost:3001/proposals` to see **index.js output**
 
 # File locations
 
 ## / (Root folder)
 
 - **/concept**: Reference files for styling.
-- **/express**: Backend files. Made using Express.
+- **/backend**: Backend files. Made using Express.
 - **/hardhat**: Smart contracts files. Made using Hardhat
 - **/interface**: Frontend files. Made using Next.js + Wagmi + ChakraUI
 
@@ -144,7 +151,7 @@ Change `/constants/CurrentChain.json` default value to your desired chain name.
 - **/pages**: Single page base files
 - **/styles**: CSS modules for styling the dApp
 
-## /express (Backend)
+## /backend (Backend)
 
 - **index.js**: File with setup and functions for REST API
 
@@ -164,3 +171,7 @@ If you get this error when trying to use your wallet again after using it for in
 
 - Just enter `npm install --global yarn` on your console.
 - Don't have NPM either? [Get the LTS version!](https://nodejs.org/en/download/)
+
+### (Bonus) Enable hh shorthand
+
+`npm install --global hardhat-shorthand` to use commands like `hh node` instead of `yarn hardhat node`
