@@ -1,5 +1,6 @@
 const ethers = require("ethers");
 const express = require("express");
+const cors = require("cors"); // Import cors module
 const app = express();
 const {
   GovernorContractABI,
@@ -22,15 +23,15 @@ const contract = new ethers.Contract(
   provider
 );
 
+// Use cors middleware
+app.use(cors());
+
 // Route for getting proposals
 app.get("/proposals", async (req, res) => {
   try {
     // Filter events for ProposalCreated
     const filter = contract.filters.ProposalCreated();
     const events = await contract.queryFilter(filter);
-
-    // Show each proposal event
-    console.log(events);
 
     // Extract proposals from events
     const proposals = events.map((event) => {
@@ -53,6 +54,13 @@ app.get("/proposals", async (req, res) => {
 });
 
 // Start Express server
-app.listen(3003, () => {
-  console.log("Server is running on http://localhost:3000");
+app.listen(3001, () => {
+  console.log("Server is running on http://localhost:3001");
 });
+
+app.use(
+  cors({
+    origin: "http://example.com", // specify allowed origin
+    methods: ["GET"], // specify allowed methods
+  })
+);

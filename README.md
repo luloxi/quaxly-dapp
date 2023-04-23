@@ -13,13 +13,13 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
   - [Setting up Hardhat](#setting-up-hardhat)
   - [Testing locally](#testing-locally)
   - [Deploying](#deploying)
+- [Backend](#backend)
+  - [Setting up backend](#setting-up-backend)
+  - [Testing backend](#testing-backend)
 - [Frontend](#frontend)
   - [Setting up interface](#setting-up-interface)
   - [Connecting to different chains](#connecting-to-different-chains)
   - [Deploying to Fleek](#deploying-to-fleek)
-- [Backend](#🚧-backend-🚧-under-construction)
-  - [Setting up backend](#setting-up-backend)
-  - [Testing backend](#testing-backend)
 - [File locations](#file-locations)
 - [Troubleshooting](#troubleshooting)
 
@@ -30,6 +30,12 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
 1. Open a terminal on `hardhat` folder
 2. Run `yarn` on hardhat folder to install dependencies.
 3. Run `yarn hardhat node` to start a local blockchain that interacts with the frontend
+
+**Backend**
+
+1. Open a terminal on `backend` folder
+2. Run `yarn` to install dependencies.
+3. Run `node index.js` to start the backend
 
 **Interface**
 
@@ -88,6 +94,19 @@ Inspired by [ferrodri's quadratic-voting-dao](https://github.com/ferrodri/quadra
 - Goerli: `yarn hardhat run scripts/deployAll --network goerli`
 - Mumbai: `yarn hardhat run scripts/deployAll --network mumbai`
 
+# Backend
+
+## Setting up backend
+
+1. Open a terminal on `backend` folder
+2. Run `yarn` to install dependencies.
+3. Run `node index.js` to start the backend
+
+## Testing backend
+
+1. Open a terminal on `backend` folder
+2. Open [http://localhost:3001/proposals](http://localhost:3001/proposals) on your browser to make a call and view the result
+
 # Frontend
 
 ## Setting up interface
@@ -112,19 +131,6 @@ Change `/constants/CurrentChain.json` default value to your desired chain name.
 - Build command: `yarn && yarn build && yarn export`
 - Publish directory: `out`
 - Base directory: `interface`
-
-# 🚧 Backend 🚧 (under construction)
-
-## Setting up backend
-
-1. Open a terminal on `backend` folder
-2. Run `yarn` to install dependencies.
-3. Run `node index.js` to start the backend
-
-## Testing backend
-
-1. Open a terminal on `backend` folder
-2. Open [http://localhost:3001/proposals](http://localhost:3001/proposals) on your browser to make a call to the API
 
 # File locations
 

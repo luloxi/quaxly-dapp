@@ -31,7 +31,7 @@ export function ListProposals({ onlyActive, onlySuccessful, availableVoting }) {
 
   useEffect(() => {
     // Fetch data from external API hosted on port 3001
-    fetch("http://localhost:3000/proposals")
+    fetch("http://localhost:3001/proposals")
       .then((response) => response.json())
       .then((data) => {
         // Update the state with the fetched data

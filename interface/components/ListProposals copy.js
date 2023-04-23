@@ -11,11 +11,11 @@ export function ListProposals({ onlyActive, onlySuccessful, availableVoting }) {
 
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState("")
-  const { isConnected } = useAccount()
-  const provider = useProvider()
-  const { data: blockNumber } = useBlockNumber({ watch: true })
   const [proposals, setProposals] = useState([])
   const [votingPeriod, setVotingPeriod] = useState(0)
+
+  const { isConnected } = useAccount()
+  const provider = useProvider()
 
   useContractRead({
     addressOrName: GovernorContractAddress,
@@ -36,6 +36,8 @@ export function ListProposals({ onlyActive, onlySuccessful, availableVoting }) {
       provider
     )
     let eventFilter = governorContract.filters.ProposalCreated()
+
+    const { data: blockNumber } = useBlockNumber({ watch: true })
     const blockMinusVotingPeriod = blockNumber - votingPeriod
 
     provider
