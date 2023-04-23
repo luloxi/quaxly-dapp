@@ -92,9 +92,9 @@ Evolved into [quaxwell-dapp](https://github.com/luloxi/quaxwell-dapp), this repo
 
 ### Deploy commands
 
-- Mainnet: `yarn hardhat run scripts/deployAll --network mainnet`
-- Goerli: `yarn hardhat run scripts/deployAll --network goerli`
-- Mumbai: `yarn hardhat run scripts/deployAll --network mumbai`
+- Mainnet: `yarn hardhat run scripts/deployAll.js --network mainnet`
+- Goerli: `yarn hardhat run scripts/deployAll.js --network goerli`
+- Mumbai: `yarn hardhat run scripts/deployAll.js --network mumbai`
 
 # Backend
 
